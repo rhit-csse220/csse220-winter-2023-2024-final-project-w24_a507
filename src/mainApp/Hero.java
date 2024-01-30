@@ -5,6 +5,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+/**
+ * Class: Hero 
+ */
+
 public class Hero {
 
 	private int constSpeed=0;
