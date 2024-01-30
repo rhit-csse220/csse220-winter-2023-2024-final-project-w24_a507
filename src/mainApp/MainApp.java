@@ -11,7 +11,21 @@ public class MainApp {
 	
 	
 	private void runApp() {
-		System.out.println("Write your cool arcade game here!");		
+		System.out.println("Write your cool arcade game here!");	
+		
+		//call opening screen
+		OpeningViewer openingScreen = new OpeningViewer();
+		openingScreen.main();
+		//System.out.println("HELO");
+		
+	
+//		GameLevel game=new GameLevel(1); //game level 1
+//		game.main();
+		
+		
+		
+		//call each game level
+		
 	} // runApp
 
 	/**
