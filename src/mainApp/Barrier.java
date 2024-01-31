@@ -25,6 +25,14 @@ public class Barrier extends Object implements Serializable{
 		this.rotation=rotation;
 	}
 	
+	public Barrier(int x, int y, int width, int height, int rotation, Color colorOfBarrier)
+	{
+		super(x, y, colorOfBarrier, 10);
+		this.width=width;
+		this.height=height;
+		this.rotation=rotation;
+	}
+	
 	protected void drawOn(Graphics g)
 	{
 		Graphics2D g2=(Graphics2D) g;
