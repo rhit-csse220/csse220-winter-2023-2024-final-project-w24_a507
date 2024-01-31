@@ -1,8 +1,13 @@
 package mainApp;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 public class GameLevel {
+	private static final int DELAY = 50;
 	private int level=0;
 	
 	public GameLevel()
@@ -22,15 +27,19 @@ public class GameLevel {
         frame.setLocation(0, 0);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameComp game=new gameComp();
-        frame.add(game);
-        game.repaint();
        
-        
-        //create while loop that updates level and expands level text file to get barriers
-        
-        
-        
+        frame.add(game);
+        Timer t = new Timer(DELAY, new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				game.update();
+				game.repaint();
+			}
+        });
         frame.setVisible(true);
+        t.start();
+        
+       
 	}
 
 }

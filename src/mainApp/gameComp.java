@@ -2,16 +2,32 @@ package mainApp;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JComponent;
 
+
+
+
+
 public class gameComp extends JComponent{
-	Hero hero1=new Hero();
-	Arraylist<Barrier> barriers = new ArrayList<Barrier>();
+	Hero hero=new Hero();
+	ArrayList<Barrier> barriers = new ArrayList<Barrier>();
+	private int xForBarrier=400;
+	 Random random = new Random();
 	
 	public gameComp()
 	{
-	
+		
+		
+		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		
+		barriers.add(new Barrier(xForBarrier,100,50,50,0));
+		
+		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		
+		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
 	}
 	
 	@Override
@@ -19,7 +35,28 @@ public class gameComp extends JComponent{
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		
-		hero1.drawOn(g2);
+		
+		
+		for(int i=0;i<barriers.size();i++)
+		{
+			barriers.get(i).drawOn(g);
+		}
+		
+		hero.drawOn(g2);
+	}
+	
+	public void update()
+	{
+		for (Barrier b: this.barriers) {
+			b.update();
+		}		
+		
+		
+		for (Barrier b: this.barriers) {
+			if (b.overlapsWith(hero) ) {
+				System.out.println("PLAYER WAS HIT");
+			}
+	}
 	}
 	
 	
