@@ -27,16 +27,16 @@ public class ElectricBarrier extends Barrier
 		g2.translate(-super.x, -super.y);
 	}
 	
-	protected void update() //
-	{
-		super.x += -super.constSpeed;
-		
-		if (super.x <0) {
-			//delete barrier, off screen
-			System.out.println("Barrier off screen");
-		}
-		
-	}
+//	protected void update() //
+//	{
+//		super.x += -super.constSpeed;
+//		
+//		if (super.x <0) {
+//			//delete barrier, off screen
+//			System.out.println("Barrier off screen");
+//		}
+//		
+//	}
 	
 	public boolean overlapsWith(Hero other) 
 	{
