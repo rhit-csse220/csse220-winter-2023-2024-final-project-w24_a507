@@ -2,6 +2,9 @@ package mainApp;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -15,19 +18,24 @@ public class gameComp extends JComponent{
 	Hero hero=new Hero();
 	ArrayList<Barrier> barriers = new ArrayList<Barrier>();
 	private int xForBarrier=400;
-	 Random random = new Random();
+	Random random = new Random();
 	
 	public gameComp()
 	{
 		
-		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
-		
-		barriers.add(new Barrier(xForBarrier,100,50,50,0));
-		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
-		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		try {
+	        FileInputStream fileIn = new FileInputStream("level.ser");
+	        ObjectInputStream in = new ObjectInputStream(fileIn);
+	        ArrayList<Barrier> e = (ArrayList<Barrier>) in.readObject();
+	        barriers = e;
+	        in.close();
+	        fileIn.close();
+	     } catch (IOException i) {
+	        i.printStackTrace();
+	     } catch (ClassNotFoundException c) {
+	        System.out.println("Employee class not found");
+	        c.printStackTrace();
+	     }
 	}
 	
 	@Override

@@ -5,10 +5,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Dimension2D;
+import java.io.Serializable;
 
 
 
-public class Barrier {
+public class Barrier implements Serializable{
 	
 	
 

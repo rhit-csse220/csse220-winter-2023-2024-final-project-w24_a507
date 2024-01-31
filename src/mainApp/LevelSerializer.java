@@ -1,7 +1,37 @@
 package mainApp;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Random;
+
 public class LevelSerializer {
 	public static void main(String[] args) {
+		Random random = new Random();
+		int xForBarrier=400;
+		ArrayList<Barrier> barriers = new ArrayList<Barrier>();
 		
+		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		
+		barriers.add(new Barrier(xForBarrier,100,50,50,0));
+		
+		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		
+		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		
+		
+		try {
+	         FileOutputStream fileOut = new FileOutputStream("level.ser");
+	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
+	         
+	         out.writeObject(barriers);
+
+	         out.close();
+	         fileOut.close();
+	         System.out.printf("Serialized data is saved in /tmp/level.ser");
+	      } catch (IOException i) {
+	         i.printStackTrace();
+	      }
 	}
 }
