@@ -1,5 +1,6 @@
 package mainApp;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -21,13 +22,13 @@ public class gameComp extends JComponent{
 	{
 		
 		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0,Color.BLUE));
 		
-		barriers.add(new Barrier(xForBarrier,100,50,50,0));
+		barriers.add(new Barrier(xForBarrier,100,50,50,0,Color.BLUE));
 		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0,Color.BLUE));
 		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0,Color.BLUE));
 	}
 	
 	@Override
@@ -55,6 +56,7 @@ public class gameComp extends JComponent{
 		for (Barrier b: this.barriers) {
 			if (b.overlapsWith(hero) ) {
 				System.out.println("PLAYER WAS HIT");
+				
 			}
 	}
 	}

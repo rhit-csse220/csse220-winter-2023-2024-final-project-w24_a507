@@ -16,14 +16,14 @@ public class Barrier {
 	Color colorOfBarrier;
 	private int constSpeed;
 	
-	public Barrier(int x, int y, int width, int height, int rotation)
+	public Barrier(int x, int y, int width, int height, int rotation,Color color)
 	{
 		this.x=x;
 		this.y=y;
 		this.width=width;
 		this.height=height;
 		this.rotation=rotation;
-		this.colorOfBarrier=Color.CYAN;
+		this.colorOfBarrier=color;
 		this.constSpeed=10;
 		
 		
