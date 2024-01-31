@@ -9,21 +9,18 @@ import java.awt.Rectangle;
  * Class: Hero 
  */
 
-public class Hero {
+public class Hero{
 
 	private int constSpeed=0;
-	protected int x;
-	protected int y;
-	protected int width;
-	protected int height;
+	protected int x, y, width, height;
 	
 	public Hero()
 	{
 		this.constSpeed=20;
-		this.x=100;
-		this.y=100;
-		this.width=50;
-		this.height=50;
+		this.x = 100;
+		this.y = 100;
+		this.width = 50;
+		this.height = 50;
 	}
 	
 	
@@ -35,7 +32,4 @@ public class Hero {
 		g2.fill(heroBox);
 		g2.draw(heroBox);
 	}
-	
-	
-	
 }
