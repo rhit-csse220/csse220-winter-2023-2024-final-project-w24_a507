@@ -1,5 +1,10 @@
 package mainApp;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+
 
 /**
  * Class: MainApp
@@ -17,8 +22,7 @@ public class MainApp {
 		OpeningViewer openingScreen = new OpeningViewer();
 		openingScreen.main();
 		//System.out.println("HELO");
-		
-	
+	}
 //		GameLevel game=new GameLevel(1); //game level 1
 //		game.main();
 		
@@ -26,15 +30,17 @@ public class MainApp {
 		
 		//call each game level
 		
-	} // runApp
+		// runApp
 
 	/**
 	 * ensures: runs the application
 	 * @param args unused
 	 */
+	
+
+
 	public static void main(String[] args) {
 		MainApp mainApp = new MainApp();
 		mainApp.runApp();		
 	} // main
-
 }

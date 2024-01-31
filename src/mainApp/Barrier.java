@@ -5,10 +5,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Dimension2D;
+import java.io.Serializable;
 
 
 
-public class Barrier {
+public class Barrier implements Serializable{
 	
 	
 
@@ -16,14 +17,14 @@ public class Barrier {
 	Color colorOfBarrier;
 	private int constSpeed;
 	
-	public Barrier(int x, int y, int width, int height, int rotation,Color color)
+	public Barrier(int x, int y, int width, int height, int rotation)
 	{
 		this.x=x;
 		this.y=y;
 		this.width=width;
 		this.height=height;
 		this.rotation=rotation;
-		this.colorOfBarrier=color;
+		this.colorOfBarrier=Color.CYAN;
 		this.constSpeed=10;
 		
 		
