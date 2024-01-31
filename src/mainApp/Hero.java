@@ -32,4 +32,19 @@ public class Hero{
 		g2.fill(heroBox);
 		g2.draw(heroBox);
 	}
+	
+	protected void update() //
+	{
+		y += constSpeed;
+		
+		if (y <0||y>1200) {
+			
+			//delete barrier, off screen
+			System.out.println("Barrier off screen");
+		}
+		
+	}
+	
+	  
+	
 }
