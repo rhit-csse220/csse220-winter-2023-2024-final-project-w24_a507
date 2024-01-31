@@ -5,9 +5,9 @@ import javax.swing.JFrame;
 public class GameLevel {
 	private int level=0;
 	
-	public GameLevel(int level)
+	public GameLevel()
 	{
-		this.level=level;
+		this.level=1;
 	}
 	
 	public void main()
@@ -25,6 +25,10 @@ public class GameLevel {
         frame.add(game);
         game.repaint();
        
+        
+        //create while loop that updates level and expands level text file to get barriers
+        
+        
         
         frame.setVisible(true);
 	}

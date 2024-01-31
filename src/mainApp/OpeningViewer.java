@@ -34,7 +34,7 @@ public class OpeningViewer {
         	public void actionPerformed(ActionEvent e) {
 				//close this screen and go to game screen
         		frame.setVisible(false);
-        		GameLevel game =new GameLevel(1);
+        		GameLevel game =new GameLevel();
             	game.main();
         		
 			}//actionPerformed
