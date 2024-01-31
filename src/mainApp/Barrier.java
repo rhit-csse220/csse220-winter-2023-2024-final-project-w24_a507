@@ -13,9 +13,9 @@ public class Barrier implements Serializable{
 	
 	
 
-	private int x,y,width,height,rotation;
+	protected int x,y,width,height,rotation;
 	Color colorOfBarrier;
-	private int constSpeed;
+	protected int constSpeed;
 	
 	public Barrier(int x, int y, int width, int height, int rotation)
 	{

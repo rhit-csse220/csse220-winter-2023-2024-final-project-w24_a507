@@ -1,5 +1,6 @@
 package mainApp;
 
+import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -19,6 +20,9 @@ public class LevelSerializer {
 		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
 		
 		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		
+		barriers.add(new ElectricBarrier(xForBarrier,random.nextInt(700),50,50,0,Color.pink));
+		
 		
 		
 		try {

@@ -25,7 +25,7 @@ public class gameComp extends JComponent{
 	{
 		
 
-		
+		/*
 		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
 		
 		barriers.add(new Barrier(xForBarrier,100,50,50,0));
@@ -34,6 +34,9 @@ public class gameComp extends JComponent{
 		
 		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
 
+		barriers.add(new ElectricBarrier(xForBarrier,random.nextInt(700),50,50,0,Color.pink));
+		
+		*/
 		try {
 	        FileInputStream fileIn = new FileInputStream("level.ser");
 	        ObjectInputStream in = new ObjectInputStream(fileIn);
