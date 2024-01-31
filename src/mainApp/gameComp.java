@@ -7,6 +7,8 @@ import javax.swing.JComponent;
 
 public class gameComp extends JComponent{
 	Hero hero1=new Hero();
+	Arraylist<Barrier> barriers = new ArrayList<Barrier>();
+	
 	public gameComp()
 	{
 	
@@ -19,5 +21,7 @@ public class gameComp extends JComponent{
 		
 		hero1.drawOn(g2);
 	}
+	
+	
 
 }
