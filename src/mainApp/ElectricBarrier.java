@@ -1,5 +1,6 @@
 package mainApp;
 
-public class ElectricBarrier extends Barrier{
+public class ElectricBarrier extends Barrier
+{
 
 }
