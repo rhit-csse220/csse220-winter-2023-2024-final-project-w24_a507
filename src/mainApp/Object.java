@@ -23,6 +23,7 @@ public abstract class Object {
 		g.setColor(this.color);
 		g.fill(shape);
 		g.setColor(Color.BLACK);
+		
 		g.draw(shape);
 	}
 	
