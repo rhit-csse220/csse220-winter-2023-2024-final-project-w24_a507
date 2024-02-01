@@ -33,4 +33,5 @@ public abstract class Object implements Serializable{
 	}
 
 	protected abstract boolean overlapsWith(Hero hero);
+	protected abstract void overlapping();
 }

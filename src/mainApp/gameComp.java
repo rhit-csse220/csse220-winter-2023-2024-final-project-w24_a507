@@ -17,7 +17,6 @@ public class gameComp extends JComponent {
 	private int xForBarrier = 400;
 	Random random = new Random();
 
-
 	public gameComp(int level) {
 
 		try {
@@ -47,87 +46,30 @@ public class gameComp extends JComponent {
 
 		hero.drawOn(g2);
 	}
-<<<<<<< HEAD
-	
-	public void update()
-	{
-		
-		for (Barrier b: this.barriers) {
-=======
 
 	public void update() {
 		for (Object b : this.objects) {
->>>>>>> branch 'master' of https://github.com/rhit-csse220/csse220-winter-2023-2024-final-project-w24_a507.git
 			b.update();
-<<<<<<< HEAD
-			
 		}
-		
-		for(DontTouch1 c: this.coins)
-		{
-			c.update();
-=======
->>>>>>> branch 'master' of https://github.com/rhit-csse220/csse220-winter-2023-2024-final-project-w24_a507.git
-		}
-<<<<<<< HEAD
-		
-		for (Barrier b: this.barriers) {
-			if (b.overlapsWith(hero) ) {
-			//	System.out.println("PLAYER WAS HIT");
-=======
 
 		for (Object b : this.objects) {
 			if (b.overlapsWith(hero)) {
-				System.out.println("PLAYER WAS HIT");
-
->>>>>>> branch 'master' of https://github.com/rhit-csse220/csse220-winter-2023-2024-final-project-w24_a507.git
+				b.overlapping();
 			}
-		}
-<<<<<<< HEAD
-		for(DontTouch1 c: this.coins) {
-			if(c.overlapsWith(hero))
-			{
-				//delete coin bc hero collected it	
-			//	System.out.println("Coin was collected");
-=======
 
-		for (Object c : this.objects) {
-			if (c.overlapsWith(hero)) {
-				System.out.println("Coin was collected");
->>>>>>> branch 'master' of https://github.com/rhit-csse220/csse220-winter-2023-2024-final-project-w24_a507.git
+		}
+	}
+
+	public void removeThings() {
+
+		for(int i = 0; i < objects.size(); i++) {
+			if(objects.get(i).overlapsWith(hero)) {
+				objects.remove(i);
 			}
 		}
 	}
-<<<<<<< HEAD
-	
-public void removeThings()
-{
-	
-	for(int b=0;b<barriers.size();b++)
-	{
-		if(barriers.get(b).offScreen)
-		{
-			barriers.remove(b);
-			//remove
-		}
-	}
-	//System.out.println(barriers.size());
-	
-	
-	for(int c=0;c<coins.size();c++)
-		if(coins.get(c).overlapsWith(hero))
-		{
-			coins.remove(c);
-			//delete coin bc hero collected it	
-		}
-	}
-=======
->>>>>>> branch 'master' of https://github.com/rhit-csse220/csse220-winter-2023-2024-final-project-w24_a507.git
 
-
-public void moveHero()
-{
+	public void moveHero() {
 		hero.update();
+	}
 }
-}
-

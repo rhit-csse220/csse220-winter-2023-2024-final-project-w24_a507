@@ -35,6 +35,11 @@ public class DontTouch1 extends Object implements Serializable{ //coin
 	
 	}
 
+	@Override
+	protected void overlapping() {
+		System.out.println("Coin was collected");
+	}
+
 	
 	
 	

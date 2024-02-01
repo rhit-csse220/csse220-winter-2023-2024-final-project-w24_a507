@@ -51,4 +51,9 @@ public class Barrier extends Object implements Serializable{
 		return this.width/2 + other.width/2 >= distance;
 		
 	}//overlapsWith
+
+	@Override
+	protected void overlapping() {
+		System.out.println("PLAYER WAS HIT");		
+	}
 }
