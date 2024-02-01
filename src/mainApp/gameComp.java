@@ -21,8 +21,7 @@ public class gameComp extends JComponent{
 	private int xForBarrier=400;
 	Random random = new Random();
 	
-	public gameComp()
-	{
+	public gameComp(){
 		
 
 		/*
