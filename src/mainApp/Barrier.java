@@ -33,7 +33,8 @@ public class Barrier extends Object implements Serializable{
 		this.rotation=rotation;
 	}
 	
-	protected void drawOn(Graphics g)
+	@Override
+	public void drawOn(Graphics2D g)
 	{
 		Graphics2D g2=(Graphics2D) g;
 		g2.translate(super.x, super.y);

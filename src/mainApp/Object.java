@@ -16,10 +16,7 @@ public abstract class Object implements Serializable{
 		this.constantSpeed = constantSpeed;
 	}
 	
-	public void drawOn(Graphics2D g)
-	{
-		
-	}
+	abstract public void drawOn(Graphics2D g);
 	
 	public void update()
 	{
