@@ -14,10 +14,9 @@ public class DontTouch1 extends Object implements Serializable{ //coin
 	public DontTouch1(int x,int y)
 	{
 		super(x,y,Color.YELLOW,10);
-		
-		
 	}
 	
+	@Override
 	public void drawOn(Graphics g)
 	{
 		Graphics2D g2=(Graphics2D) g;

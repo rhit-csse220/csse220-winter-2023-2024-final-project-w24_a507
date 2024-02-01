@@ -1,7 +1,7 @@
 package mainApp;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.io.Serializable;
 
 public abstract class Object implements Serializable{
@@ -16,7 +16,7 @@ public abstract class Object implements Serializable{
 		this.constantSpeed = constantSpeed;
 	}
 	
-	public void drawOn(Graphics2D g)
+	public void drawOn(Graphics g)
 	{
 		
 	}

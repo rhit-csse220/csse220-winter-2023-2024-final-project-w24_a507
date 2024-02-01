@@ -29,7 +29,8 @@ public class Barrier extends Object implements Serializable{
 		this.rotation=rotation;
 	}
 	
-	protected void drawOn(Graphics g)
+	@Override
+	public void drawOn(Graphics g)
 	{
 		Graphics2D g2=(Graphics2D) g;
 		g2.translate(super.x, super.y);
@@ -42,6 +43,7 @@ public class Barrier extends Object implements Serializable{
 		g2.translate(-super.x, -super.y);
 	}
 	
+	@Override
 	public boolean overlapsWith(Hero other) 
 	{
 		int xDiff =  super.x - other.x;
