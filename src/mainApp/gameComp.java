@@ -16,9 +16,14 @@ public class gameComp extends JComponent {
 	ArrayList<Object> objects = new ArrayList<Object>();
 	private int xForBarrier = 400;
 	Random random = new Random();
+	int level = 1;
+	final int MAX_LEVEL = 2;
 
-	public gameComp(int level) {
+	public gameComp() {
+		this.loadFile(1);
+	}
 
+	public void loadFile(int level) {
 		try {
 			FileInputStream fileIn = new FileInputStream("level" + level + ".ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -33,6 +38,11 @@ public class gameComp extends JComponent {
 			c.printStackTrace();
 		}
 
+	}
+
+	public boolean levelOver() {
+		System.out.println(objects.size());
+		return objects.size() == 0;
 	}
 
 	@Override
@@ -58,12 +68,20 @@ public class gameComp extends JComponent {
 			}
 
 		}
+
+		if (objects.size() == 0) {
+			level++;
+			if (level <= MAX_LEVEL) {
+				this.loadFile(level);
+				System.out.println("New Level " + level);
+			}
+		}
 	}
 
 	public void removeThings() {
 
-		for(int i = 0; i < objects.size(); i++) {
-			if(objects.get(i).overlapsWith(hero)) {
+		for (int i = 0; i < objects.size(); i++) {
+			if (objects.get(i).overlapsWith(hero) || objects.get(i).isOffScreen()) {
 				objects.remove(i);
 			}
 		}

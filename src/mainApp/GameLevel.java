@@ -11,8 +11,9 @@ import javax.swing.Timer;
 
 public class GameLevel {
 	private static final int DELAY = 50;
-	private int level = 0;
-
+	private int level = 1;
+	private gameComp game;
+	
 	public GameLevel() {
 		this.level = 1;
 	}
@@ -27,41 +28,37 @@ public class GameLevel {
 		frame.setSize(frameWidth, frameHeight);
 		frame.setLocation(0, 0);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		gameComp game = new gameComp(level);
-		
-		KeyListener goUp=new KeyListener() {
-			
+		game = new gameComp();			
+
+		KeyListener goUp = new KeyListener() {
+
 			@Override
 			public void keyTyped(KeyEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void keyReleased(KeyEvent e) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
 				System.out.println(e.getKeyChar());
-				if(e.getKeyChar()=='u')
-					{
-							System.out.println("here");
-							game.moveHero();
-							
-							
-					}
-				
+				if (e.getKeyChar() == 'u') {
+					System.out.println("here");
+					game.moveHero();
+
+				}
+
 			}
 		};
-		
-	
-		frame.addKeyListener( goUp);
-	
-		
+
+		frame.addKeyListener(goUp);
+
 		frame.add(game);
 		Timer t = new Timer(DELAY, new ActionListener() {
 

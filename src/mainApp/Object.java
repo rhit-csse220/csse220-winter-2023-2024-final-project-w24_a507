@@ -31,6 +31,10 @@ public abstract class Object implements Serializable{
 		//	System.out.println("Object is off screen");
 		}
 	}
+	
+	protected boolean isOffScreen() {
+		return offScreen;
+	}
 
 	protected abstract boolean overlapsWith(Hero hero);
 	protected abstract void overlapping();
