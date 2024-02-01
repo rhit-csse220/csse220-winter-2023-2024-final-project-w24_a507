@@ -17,25 +17,23 @@ public class gameComp extends JComponent {
 	private int xForBarrier = 400;
 	Random random = new Random();
 
-	private final int NUM_OF_LEVELS = 1;
 
-	public gameComp() {
+	public gameComp(int level) {
 
-		for (int x = 1; x <= NUM_OF_LEVELS; x++) {
-			try {
-				FileInputStream fileIn = new FileInputStream("level" + x + ".ser");
-				ObjectInputStream in = new ObjectInputStream(fileIn);
-				ArrayList<Object> e = (ArrayList<Object>) in.readObject();
-				objects = e;
-				in.close();
-				fileIn.close();
-			} catch (IOException i) {
-				i.printStackTrace();
-			} catch (ClassNotFoundException c) {
-				System.out.println("Employee class not found");
-				c.printStackTrace();
-			}
+		try {
+			FileInputStream fileIn = new FileInputStream("level" + level + ".ser");
+			ObjectInputStream in = new ObjectInputStream(fileIn);
+			ArrayList<Object> e = (ArrayList<Object>) in.readObject();
+			objects = e;
+			in.close();
+			fileIn.close();
+		} catch (IOException i) {
+			i.printStackTrace();
+		} catch (ClassNotFoundException c) {
+			System.out.println("Employee class not found");
+			c.printStackTrace();
 		}
+
 	}
 
 	@Override
