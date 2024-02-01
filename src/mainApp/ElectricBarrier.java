@@ -15,7 +15,7 @@ public class ElectricBarrier extends Barrier
 	}
 	
 	@Override
-	public void drawOn(Graphics g)
+	public void drawOn(Graphics2D g)
 	{
 		Graphics2D g2=(Graphics2D) g;
 		g2.rotate(Math.toRadians(rotation));

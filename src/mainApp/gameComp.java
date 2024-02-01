@@ -17,8 +17,7 @@ import javax.swing.JComponent;
 
 public class gameComp extends JComponent{
 	Hero hero=new Hero();
-	ArrayList<Barrier> barriers = new ArrayList<Barrier>();
-	ArrayList<DontTouch1> coins=new ArrayList<DontTouch1>();
+	ArrayList<Object> objects = new ArrayList<Object>();
 	private int xForBarrier=400;
 	Random random = new Random();
 	
@@ -27,24 +26,23 @@ public class gameComp extends JComponent{
 		
 
 		/*
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		objects.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
 		
-		barriers.add(new Barrier(xForBarrier,100,50,50,0));
+		objects.add(new Barrier(xForBarrier,100,50,50,0));
 		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		objects.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
 		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		objects.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
 
-		barriers.add(new ElectricBarrier(xForBarrier,random.nextInt(700),50,50,0,Color.pink));
+		objects.add(new ElectricBarrier(xForBarrier,random.nextInt(700),50,50,0,Color.pink));
 		
 		*/
-		coins.add(new DontTouch1(500,100));
 		
 		try {
 	        FileInputStream fileIn = new FileInputStream("level.ser");
 	        ObjectInputStream in = new ObjectInputStream(fileIn);
-	        ArrayList<Barrier> e = (ArrayList<Barrier>) in.readObject();
-	        barriers = e;
+	        ArrayList<Object> e = (ArrayList<Object>) in.readObject();
+	        objects = e;
 	        in.close();
 	        fileIn.close();
 	     } catch (IOException i) {
@@ -62,34 +60,22 @@ public class gameComp extends JComponent{
 		
 		
 		
-		for(int i=0;i<barriers.size();i++)
+		for(Object i : objects)
 		{
-			barriers.get(i).drawOn(g);
-			
+			i.drawOn(g2);
 		}
-	//	System.out.println(coins.size());
-		for(int j=0;j<coins.size();j++)
-		{
-			coins.get(j).drawOn(g);
-			//System.out.println("herllo");
-		}
+	
 		
 		hero.drawOn(g2);
 	}
 	
 	public void update()
 	{
-		for (Barrier b: this.barriers) {
+		for (Object b: this.objects) {
 			b.update();
 		}	
 		
-		for(DontTouch1 c: this.coins)
-		{
-			c.update();
-		}
-		
-		
-		for (Barrier b: this.barriers) {
+		for (Object b: this.objects) {
 			if (b.overlapsWith(hero) ) {
 				System.out.println("PLAYER WAS HIT");
 				
@@ -97,7 +83,7 @@ public class gameComp extends JComponent{
 	}
 		
 		
-		for(DontTouch1 c: this.coins) {
+		for(Object c: this.objects) {
 			if(c.overlapsWith(hero))
 			{
 				System.out.println("Coin was collected");
