@@ -29,13 +29,35 @@ public class GameLevel {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gameComp game = new gameComp();
 		
-		KeyListener goUp = new KeyAdapter() {
-			public void KeyPressed(KeyEvent event) {
-				System.out.println(event.getKeyChar());
+		KeyListener goUp=new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println(e.getKeyChar());
+				if(e.getKeyChar()=='u')
+					{
+							System.out.println("here");
+							
+					}
+				
 			}
 		};
-	
 		
+	
+		frame.addKeyListener( goUp);
 	
 		
 		frame.add(game);
