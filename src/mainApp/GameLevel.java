@@ -50,6 +50,7 @@ public class GameLevel {
 				if(e.getKeyChar()=='u')
 					{
 							System.out.println("here");
+							game.moveHero();
 							
 							
 					}
@@ -67,6 +68,7 @@ public class GameLevel {
 			public void actionPerformed(ActionEvent arg0) {
 				game.update();
 				game.repaint();
+				game.removeThings();
 			}
 		});
 		frame.setVisible(true);

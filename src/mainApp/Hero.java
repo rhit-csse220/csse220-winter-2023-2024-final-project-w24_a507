@@ -4,14 +4,15 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.io.Serializable;
 
 /**
  * Class: Hero 
  */
 
-public class Hero{
+public class Hero implements Serializable{
 
-	private int constSpeed=0;
+	private int constSpeed=10;
 	protected int x, y, width, height;
 	
 	public Hero()
@@ -27,20 +28,21 @@ public class Hero{
 	public void drawOn(Graphics g) {
 		Graphics2D g2=(Graphics2D) g;
 		
-		Rectangle heroBox=new Rectangle(100, 100, 50, 50);
+		Rectangle heroBox=new Rectangle(x, y, 50, 50);
 		g2.setColor(Color.BLACK);
 		g2.fill(heroBox);
 		g2.draw(heroBox);
 	}
 	
-	protected void update() //
+
+	public void update() //
 	{
-		y += constSpeed;
+		y -= constSpeed;
 		
-		if (y <0||y>1200) {
-			
-			//delete barrier, off screen
-			System.out.println("Barrier off screen");
+		if(y < 0)
+		{
+			y=0;
+			System.out.println("WEEE is off screen");
 		}
 		
 	}
