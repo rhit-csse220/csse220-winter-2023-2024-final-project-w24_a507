@@ -27,7 +27,7 @@ public class GameLevel {
 		frame.setSize(frameWidth, frameHeight);
 		frame.setLocation(0, 0);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		gameComp game = new gameComp();
+		gameComp game = new gameComp(level);
 		
 		KeyListener goUp=new KeyListener() {
 			

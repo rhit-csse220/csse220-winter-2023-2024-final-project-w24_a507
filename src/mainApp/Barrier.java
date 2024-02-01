@@ -7,12 +7,8 @@ import java.awt.Rectangle;
 import java.awt.geom.Dimension2D;
 import java.io.Serializable;
 
-
-
 public class Barrier extends Object implements Serializable{
 	
-	
-
 	protected int width,height,rotation;
 	Color colorOfBarrier = Color.CYAN;
 	protected int constSpeed;
@@ -33,8 +29,8 @@ public class Barrier extends Object implements Serializable{
 		this.rotation=rotation;
 	}
 	
-	protected void drawOn(Graphics g)
-	{
+	@Override
+	public void drawOn(Graphics2D g) {
 		Graphics2D g2=(Graphics2D) g;
 		g2.translate(super.x, super.y);
 		g2.rotate(Math.toRadians(rotation));
@@ -46,17 +42,7 @@ public class Barrier extends Object implements Serializable{
 		g2.translate(-super.x, -super.y);
 	}
 	
-//	protected void update() //
-//	{
-//		x += -constSpeed;
-//		
-//		if (x <0) {
-//			//delete barrier, off screen
-//			System.out.println("Barrier off screen");
-//		}
-//		
-//	}
-	
+	@Override
 	public boolean overlapsWith(Hero other) 
 	{
 		int xDiff =  super.x - other.x;

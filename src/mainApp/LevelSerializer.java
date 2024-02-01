@@ -11,25 +11,24 @@ public class LevelSerializer {
 	public static void main(String[] args) {
 		Random random = new Random();
 		int xForBarrier=400;
-		ArrayList<Barrier> barriers = new ArrayList<Barrier>();
-		ArrayList<DontTouch1> coins=new ArrayList<DontTouch1>();
+		ArrayList<Object> objects = new ArrayList<Object>();
 		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,10));
+		objects.add(new Barrier(xForBarrier,random.nextInt(700),50,50,10));
 		
-		barriers.add(new Barrier(xForBarrier,50,75,50,0));
+		objects.add(new Barrier(xForBarrier,50,75,50,0));
 		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		objects.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
 		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,30));
+		objects.add(new Barrier(xForBarrier,random.nextInt(700),50,50,30));
 		
-		barriers.add(new ElectricBarrier(xForBarrier,random.nextInt(700),50,50,0,Color.pink));
+		objects.add(new ElectricBarrier(xForBarrier,random.nextInt(700),50,50,0,Color.pink));
 		
-		
+		objects.add(new DontTouch1(500, 500));
 		try {
-	         FileOutputStream fileOut = new FileOutputStream("level.ser");
+	         FileOutputStream fileOut = new FileOutputStream("level1.ser");
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 	         
-	         out.writeObject(barriers);
+	         out.writeObject(objects);
 
 	         out.close();
 	         fileOut.close();

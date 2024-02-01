@@ -14,11 +14,10 @@ public class DontTouch1 extends Object implements Serializable{ //coin
 	public DontTouch1(int x,int y)
 	{
 		super(x,y,Color.YELLOW,10);
-		
-		
 	}
 	
-	public void drawOn(Graphics g)
+	@Override
+	public void drawOn(Graphics2D g)
 	{
 		Graphics2D g2=(Graphics2D) g;
 		Ellipse2D.Double coin1=new Ellipse2D.Double(super.x, super.y, width, height);
@@ -35,7 +34,7 @@ public class DontTouch1 extends Object implements Serializable{ //coin
 		return this.width/2 + hero.width/2 >= distance;
 	
 	}
-	
+
 	
 	
 	
