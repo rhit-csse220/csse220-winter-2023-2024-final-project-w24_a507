@@ -14,13 +14,13 @@ public class LevelSerializer {
 		ArrayList<Barrier> barriers = new ArrayList<Barrier>();
 		ArrayList<DontTouch1> coins=new ArrayList<DontTouch1>();
 		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,10));
 		
 		barriers.add(new Barrier(xForBarrier,50,75,50,0));
 		
 		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
 		
-		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,0));
+		barriers.add(new Barrier(xForBarrier,random.nextInt(700),50,50,30));
 		
 		barriers.add(new ElectricBarrier(xForBarrier,random.nextInt(700),50,50,0,Color.pink));
 		
