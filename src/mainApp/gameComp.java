@@ -92,8 +92,4 @@ public class gameComp extends JComponent{
 		hero.update();
 	}
 	
-	public void moveHeroDown()
-	{
-		hero.gravity();
-	}
 }

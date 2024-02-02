@@ -59,7 +59,6 @@ public class GameLevel {
 				
 			}
 		};
-		game.moveHeroDown();
 	
 		frame.addKeyListener( goUp);
 	

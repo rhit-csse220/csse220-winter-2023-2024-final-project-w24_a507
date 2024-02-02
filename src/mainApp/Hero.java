@@ -48,14 +48,4 @@ public class Hero extends Object implements Serializable{
 		return;
 	}
 	
-	public void gravity()
-	{
-		y += super.constantSpeed;
-		
-		if(y > 615)
-		{
-			y=615;
-			System.out.println("WEEE is off screen");
-		}
-	}
 }
