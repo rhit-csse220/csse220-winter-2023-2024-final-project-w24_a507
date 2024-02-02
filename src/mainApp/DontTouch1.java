@@ -34,4 +34,9 @@ public class DontTouch1 extends Object implements Serializable{ //coin
 		return this.width/2 + hero.width/2 >= distance;
 	
 	}
+
+	@Override
+	protected void overlapping() {
+		System.out.println("Coin was collected");
+	}
 }

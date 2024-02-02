@@ -47,9 +47,12 @@ public class GameLevel {
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
 				System.out.println(e.getKeyChar());
-				if(e.getKeyChar()=='u')
+				int keyPressed=e.getKeyChar();
+				//System.out.println(keyPressed);
+				if(keyPressed==65535)
 					{
-							System.out.println("here");
+						//	System.out.println("here");
+							game.moveHero();
 							
 							
 					}
@@ -67,6 +70,7 @@ public class GameLevel {
 			public void actionPerformed(ActionEvent arg0) {
 				game.update();
 				game.repaint();
+				game.removeThings();
 			}
 		});
 		frame.setVisible(true);

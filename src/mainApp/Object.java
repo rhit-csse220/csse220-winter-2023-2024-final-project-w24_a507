@@ -8,6 +8,7 @@ import java.io.Serializable;
 public abstract class Object implements Serializable{
 	protected int x, y, constantSpeed, width, height;
 	protected Color color;
+	protected boolean offScreen;
 	
 	public Object(int x, int y, int width, int height, Color color, int constantSpeed)
 	{
@@ -17,6 +18,7 @@ public abstract class Object implements Serializable{
 		this.height = height;
 		this.color = color;
 		this.constantSpeed = constantSpeed;
+		this.offScreen=false;
 	}
 	
 	abstract public void drawOn(Graphics2D g);
@@ -27,9 +29,15 @@ public abstract class Object implements Serializable{
 		
 		if(x < 0)
 		{
-			System.out.println("Object is off screen");
+			offScreen=true;
+		//	System.out.println("Object is off screen");
 		}
+	}
+	
+	protected boolean isOffScreen() {
+		return offScreen;
 	}
 
 	protected abstract boolean overlapsWith(Hero hero);
+	protected abstract void overlapping();
 }
