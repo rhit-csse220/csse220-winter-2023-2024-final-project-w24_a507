@@ -51,4 +51,9 @@ public class Barrier extends Object implements Serializable{
 	protected void overlapping() {
 		System.out.println("PLAYER WAS HIT");		
 	}
+
+	@Override
+	protected boolean isCoin() {
+		return false;
+	}
 }

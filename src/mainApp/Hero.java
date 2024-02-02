@@ -48,4 +48,10 @@ public class Hero extends Object implements Serializable{
 	protected void overlapping() {
 		return;
 	}
+
+	@Override
+	protected boolean isCoin() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -82,8 +82,13 @@ public class gameComp extends JComponent{
 	public void removeThings() {
 
 		for (int i = 0; i < objects.size(); i++) {
-			if (objects.get(i).overlapsWith(hero) || objects.get(i).isOffScreen()) {
+			if (objects.get(i).overlapsWith(hero) && objects.get(i).isCoin()) {
 				objects.remove(i);
+				break;
+			}
+			if(objects.get(i).isOffScreen()) {
+				objects.remove(i);
+				break;
 			}
 		}
 	}
