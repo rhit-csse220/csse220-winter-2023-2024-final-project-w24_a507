@@ -88,7 +88,12 @@ public class gameComp extends JComponent{
 		}
 	}
 
-	public void moveHero() {
+	public void moveHeroUp() {
 		hero.update();
+	}
+	
+	public void moveHeroDown()
+	{
+		hero.gravity();
 	}
 }

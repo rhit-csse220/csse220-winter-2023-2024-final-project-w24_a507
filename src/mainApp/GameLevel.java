@@ -52,14 +52,14 @@ public class GameLevel {
 				if(keyPressed==65535)
 					{
 						//	System.out.println("here");
-							game.moveHero();
+							game.moveHeroUp();
 							
 							
 					}
 				
 			}
 		};
-		
+		game.moveHeroDown();
 	
 		frame.addKeyListener( goUp);
 	

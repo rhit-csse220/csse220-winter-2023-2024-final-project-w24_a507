@@ -28,8 +28,7 @@ public class Hero extends Object implements Serializable{
 	
 	public void update() //
 	{
-
-		y += super.constantSpeed;
+		y -= super.constantSpeed;
 		
 		if(y < 0)
 		{
@@ -47,5 +46,16 @@ public class Hero extends Object implements Serializable{
 	@Override
 	protected void overlapping() {
 		return;
+	}
+	
+	public void gravity()
+	{
+		y += super.constantSpeed;
+		
+		if(y > 615)
+		{
+			y=615;
+			System.out.println("WEEE is off screen");
+		}
 	}
 }
