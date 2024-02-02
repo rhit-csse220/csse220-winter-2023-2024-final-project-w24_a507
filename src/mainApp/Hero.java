@@ -19,7 +19,7 @@ public class Hero implements Serializable{
 	{
 		this.constSpeed=20;
 		this.x = 100;
-		this.y = 100;
+		this.y = 500;
 		this.width = 50;
 		this.height = 50;
 	}
