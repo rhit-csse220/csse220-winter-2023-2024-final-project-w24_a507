@@ -18,13 +18,13 @@ public class ElectricBarrier extends Barrier
 	public void drawOn(Graphics2D g)
 	{
 		Graphics2D g2=(Graphics2D) g;
-		g2.rotate(Math.toRadians(rotation));
+		g2.rotate(Math.toRadians(super.rotation));
 		g2.translate(super.x, super.y);
-		Rectangle bar = new Rectangle(0,0,super.width,super.height);
+		Rectangle bar = new Rectangle(0, 0, super.width, super.height);
 		g2.setColor(color);
 		g2.fill(bar);
 		g2.draw(bar);
-		g2.rotate(Math.toRadians(-rotation));
+		g2.rotate(Math.toRadians(-super.rotation));
 		g2.translate(-super.x, -super.y);
 	}
 	

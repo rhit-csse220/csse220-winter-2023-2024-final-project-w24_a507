@@ -16,7 +16,7 @@ import javax.swing.JComponent;
 
 
 public class gameComp extends JComponent{
-	Hero hero=new Hero();
+	Hero hero=new Hero(100, 100, 50, 50, 20);
 	ArrayList<Object> objects = new ArrayList<Object>();
 	private int xForBarrier=400;
 	Random random = new Random();

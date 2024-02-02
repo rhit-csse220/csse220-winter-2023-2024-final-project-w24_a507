@@ -9,23 +9,18 @@ import java.io.Serializable;
 
 public class Barrier extends Object implements Serializable{
 	
-	protected int width,height,rotation;
+	protected int rotation;
 	Color colorOfBarrier = Color.CYAN;
-	protected int constSpeed;
 	
 	public Barrier(int x, int y, int width, int height, int rotation)
 	{
-		super(x, y, Color.CYAN, 10);
-		this.width=width;
-		this.height=height;
+		super(x, y, width, height, Color.CYAN, 10);
 		this.rotation=rotation;
 	}
 	
 	public Barrier(int x, int y, int width, int height, int rotation, Color colorOfBarrier)
 	{
-		super(x, y, colorOfBarrier, 10);
-		this.width=width;
-		this.height=height;
+		super(x, y, width, height, colorOfBarrier, 10);
 		this.rotation=rotation;
 	}
 	
@@ -34,7 +29,7 @@ public class Barrier extends Object implements Serializable{
 		Graphics2D g2=(Graphics2D) g;
 		g2.translate(super.x, super.y);
 		g2.rotate(Math.toRadians(rotation));
-		Rectangle bar = new Rectangle(0,0,width,height);
+		Rectangle bar = new Rectangle(0,0,super.width,super.height);
 		g2.setColor(colorOfBarrier);
 		g2.fill(bar);
 		g2.draw(bar);

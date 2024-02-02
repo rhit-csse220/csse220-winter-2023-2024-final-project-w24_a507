@@ -6,13 +6,15 @@ import java.awt.Graphics2D;
 import java.io.Serializable;
 
 public abstract class Object implements Serializable{
-	protected int x, y, constantSpeed;
+	protected int x, y, constantSpeed, width, height;
 	protected Color color;
 	
-	public Object(int x, int y, Color color, int constantSpeed)
+	public Object(int x, int y, int width, int height, Color color, int constantSpeed)
 	{
 		this.x = x;
 		this.y = y;
+		this.width = width;
+		this.height = height;
 		this.color = color;
 		this.constantSpeed = constantSpeed;
 	}

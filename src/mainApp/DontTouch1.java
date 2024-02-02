@@ -13,7 +13,7 @@ public class DontTouch1 extends Object implements Serializable{ //coin
 	
 	public DontTouch1(int x,int y)
 	{
-		super(x,y,Color.YELLOW,10);
+		super(x, y, width, height, Color.YELLOW,10);
 	}
 	
 	@Override
@@ -34,9 +34,4 @@ public class DontTouch1 extends Object implements Serializable{ //coin
 		return this.width/2 + hero.width/2 >= distance;
 	
 	}
-
-	
-	
-	
-	
 }
