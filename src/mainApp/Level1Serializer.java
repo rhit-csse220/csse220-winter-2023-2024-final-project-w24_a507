@@ -8,7 +8,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Level1Serializer {
-	public static void main(String[] args) {
+	
+	public Level1Serializer() {
+		
+	}
+	
+	public void generateFile() {
 		Random random = new Random();
 		int xForBarrier=400;
 		ArrayList<Object> objects = new ArrayList<Object>();
@@ -21,7 +26,7 @@ public class Level1Serializer {
 		
 		objects.add(new Barrier(650,200,50,30,50));
 		
-		objects.add(new ElectricBarrier(400,50,50,0,0,Color.pink));
+		objects.add(new ElectricBarrier(400,50,50,20,0,Color.pink));
 		
 		objects.add(new DontTouch1(300, 500));
 		

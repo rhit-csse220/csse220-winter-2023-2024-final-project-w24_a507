@@ -38,8 +38,7 @@ public class Barrier extends Object implements Serializable{
 	}
 	
 	@Override
-	public boolean overlapsWith(Hero other) 
-	{
+	public boolean overlapsWith(Hero other) {
 		int xDiff =  super.x - other.x;
 		int yDiff =  super.y - other.y;
 		double distance = Math.sqrt(  xDiff*xDiff + yDiff * yDiff );
