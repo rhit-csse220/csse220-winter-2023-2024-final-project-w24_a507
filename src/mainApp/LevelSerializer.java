@@ -25,7 +25,7 @@ public class LevelSerializer {
 		
 		objects.add(new DontTouch1(500, 500));
 		try {
-	         FileOutputStream fileOut = new FileOutputStream("level2.ser");
+	         FileOutputStream fileOut = new FileOutputStream("level1.ser");
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 	         
 	         out.writeObject(objects);

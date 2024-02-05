@@ -26,15 +26,14 @@ public class Barrier extends Object implements Serializable{
 	
 	@Override
 	public void drawOn(Graphics2D g) {
-		Graphics2D g2=(Graphics2D) g;
-		g2.translate(super.x, super.y);
-		g2.rotate(Math.toRadians(rotation));
+		g.translate(super.x, super.y);
+		g.rotate(Math.toRadians(rotation));
 		Rectangle bar = new Rectangle(0,0,super.width,super.height);
-		g2.setColor(colorOfBarrier);
-		g2.fill(bar);
-		g2.draw(bar);
-		g2.rotate(Math.toRadians(-rotation));
-		g2.translate(-super.x, -super.y);
+		g.setColor(colorOfBarrier);
+		g.fill(bar);
+		g.draw(bar);
+		g.rotate(Math.toRadians(-rotation));
+		g.translate(-super.x, -super.y);
 	}
 	
 	@Override
@@ -46,7 +45,7 @@ public class Barrier extends Object implements Serializable{
 		return this.width/2 + other.width/2 >= distance;
 		
 	}//overlapsWith
-
+	
 	@Override
 	protected void overlapping() {
 		System.out.println("PLAYER WAS HIT");		
