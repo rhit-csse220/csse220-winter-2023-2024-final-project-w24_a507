@@ -41,9 +41,9 @@ public class MainApp {
 
 	public static void main(String[] args) {
 		Level1Serializer level1 = new Level1Serializer();
-		Level2Serializer level2 = new Level2Serializer();
+		//ErrorLevelSerializer level2 = new ErrorLevelSerializer();
 		level1.generateFile();
-		level2.generateFile();
+		//level2.generateFile();
 		MainApp mainApp = new MainApp();
 		mainApp.runApp();		
 	} // main
