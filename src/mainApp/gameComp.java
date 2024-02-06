@@ -15,11 +15,11 @@ import javax.swing.JComponent;
 public class gameComp extends JComponent {
 	Hero hero = new Hero(100, 500, 50, 50, 20);
 
-	ArrayList<GameObject> objects = new ArrayList<GameObject>();
+	ArrayList<Object> objects = new ArrayList<Object>();
 	private int xForBarrier = 400;
 	Random random = new Random();
 	int level = 1;
-	final int MAX_LEVEL = 2;
+	final int MAX_LEVEL = 3;
 
 	public gameComp() {
 		this.loadFile(1);
@@ -29,13 +29,13 @@ public class gameComp extends JComponent {
 		try {
 			FileInputStream fileIn = new FileInputStream("level" + level + ".ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
-			ArrayList<GameObject> e = (ArrayList<GameObject>) in.readObject();
+			ArrayList<Object> e = (ArrayList<Object>) in.readObject();
 			objects = e;
 			in.close();
 			fileIn.close();
 
 		} catch (FileNotFoundException e) {
-			System.err.println("File not found");
+			System.err.println("File not found for level " + level);
 		} catch (ClassNotFoundException | IOException e) {
 			System.err.println("Class not found");
 		}
@@ -52,7 +52,7 @@ public class gameComp extends JComponent {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 
-		for (GameObject i : objects) {
+		for (Object i : objects) {
 			i.drawOn(g2);
 		}
 
@@ -60,11 +60,11 @@ public class gameComp extends JComponent {
 	}
 
 	public void update() {
-		for (GameObject b : this.objects) {
+		for (Object b : this.objects) {
 			b.update();
 		}
 
-		for (GameObject b : this.objects) {
+		for (Object b : this.objects) {
 			if (b.overlapsWith(hero)) {
 				b.overlapping();
 			}
@@ -77,7 +77,6 @@ public class gameComp extends JComponent {
 				this.loadFile(level);
 			}
 		}
-		
 		hero.update();
 	}
 
@@ -96,8 +95,8 @@ public class gameComp extends JComponent {
 	}
 
 	public void moveHeroUp() {
-		hero.update();
 		hero.isUp(true);
+		hero.update();
 	}
 
 }

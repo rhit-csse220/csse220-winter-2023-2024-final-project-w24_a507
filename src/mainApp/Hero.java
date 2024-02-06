@@ -10,9 +10,8 @@ import java.io.Serializable;
  * Class: Hero 
  */
 
-public class Hero extends GameObject implements Serializable{
-	
-	private boolean up;
+public class Hero extends Object implements Serializable{
+	private boolean up=false;
 	
 	public Hero(int x, int y, int width, int height, int constSpeed)
 	{
@@ -28,35 +27,28 @@ public class Hero extends GameObject implements Serializable{
 
 	}
 	
-	public boolean isUp(boolean up)
-	{
-		this.up = up;
-		return up;
-	}
-	
 	public void update() //
 	{
-		
 		if(up)
 		{
-			y -= super.constantSpeed;
-			
-			if(y < 0)
-			{
-				y=0;
-				System.out.println("WEEE is off screen");
-			}
-		}
-		else
+		y -= super.constantSpeed;
+		
+		if(y < 0)
 		{
-			y += 5;
-			
-			if(y > 700 - 85)
+			y=0;
+			System.out.println("WEEE is off screen");
+		}
+		}
+		else 
+		{
+			y+=5;
+			if(y>700-85)
 			{
-				y = 700 - 85;
+				y=700-85;
 			}
 		}
-		this.up = false;
+		this.up=false;
+		
 	}
 	
 	public boolean overlapsWith(Hero hero)
@@ -73,6 +65,11 @@ public class Hero extends GameObject implements Serializable{
 	protected boolean isCoin() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	protected void isUp(boolean up)
+	{
+		this.up=up;
 	}
 
 }
