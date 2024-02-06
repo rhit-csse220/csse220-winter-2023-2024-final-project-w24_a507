@@ -5,16 +5,20 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.Arc2D;
 
-public class Missile extends Object {
+public class Missile extends GameObject {
 	
-	public Missile(int x, int y, int width, int height, int constantSpeed) {
-		super(x, y, width, height, Color.RED, constantSpeed);
+	public Missile(int y, int width, int height, int constantSpeed) {
+		super(1350, y, width, height, Color.ORANGE, constantSpeed);
+	}
+	
+	public Missile(int y, int width, int height, Color color, int constantSpeed) {
+		super(1350, y, width, height, color, constantSpeed);
 	}
 	
 	@Override
 	public void drawOn(Graphics2D g)
 	{
-		Rectangle body = new Rectangle(super.x + (2 * super.width) / 5, super.y, (super.width * 3) / 5, height);
+		Rectangle body = new Rectangle(super.x + super.width / 5, super.y, (super.width * 3) / 5, height);
 		Arc2D.Double tip = new Arc2D.Double((double) super.x, (double) super.y, (super.width * 2) / 5, super.height, 90.0, 180.0, Arc2D.OPEN);
 		g.setColor(Color.RED);
 		g.fill(body);

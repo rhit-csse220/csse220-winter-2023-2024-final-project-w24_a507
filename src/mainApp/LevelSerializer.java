@@ -11,7 +11,7 @@ public class LevelSerializer {
 	public static void main(String[] args) {
 		Random random = new Random();
 		int xForBarrier=400;
-		ArrayList<Object> objects = new ArrayList<Object>();
+		ArrayList<GameObject> objects = new ArrayList<GameObject>();
 		
 		objects.add(new Barrier(xForBarrier,random.nextInt(700),50,50,10));
 		
@@ -23,7 +23,7 @@ public class LevelSerializer {
 		
 		objects.add(new ElectricBarrier(xForBarrier,random.nextInt(700),50,50,0,Color.pink));
 		
-		objects.add(new DontTouch1(500, 500));
+		objects.add(new Coin(500, 500));
 		try {
 	         FileOutputStream fileOut = new FileOutputStream("level1.ser");
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);

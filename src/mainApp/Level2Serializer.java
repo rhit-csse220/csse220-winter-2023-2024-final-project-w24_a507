@@ -27,15 +27,17 @@ public class Level2Serializer {
 
 		objects.add(new ElectricBarrier(400, 50, 50, 20, 0, Color.pink));
 
-		objects.add(new DontTouch1(500, 500));
+		objects.add(new Coin(500, 500));
 
-		objects.add(new DontTouch1(700, 0));
+		objects.add(new Coin(700, 0));
 
-		objects.add(new DontTouch1(900, 300));
+		objects.add(new Coin(900, 300));
 
-		objects.add(new DontTouch1(1300, 0));
+		objects.add(new Coin(1300, 0));
 
-		objects.add(new DontTouch1(1700, 600));
+		objects.add(new Coin(1700, 600));
+		
+		objects.add(new Missile(400, 75, 50, 40));
 		try {
 			FileOutputStream fileOut = new FileOutputStream("level2.ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);

@@ -7,7 +7,7 @@ import java.awt.Rectangle;
 import java.awt.geom.Dimension2D;
 import java.io.Serializable;
 
-public class Barrier extends Object implements Serializable{
+public class Barrier extends GameObject implements Serializable{
 	
 	protected int rotation;
 	Color colorOfBarrier = Color.CYAN;

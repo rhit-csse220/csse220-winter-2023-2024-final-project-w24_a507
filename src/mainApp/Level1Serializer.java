@@ -16,7 +16,7 @@ public class Level1Serializer {
 	public void generateFile() {
 		Random random = new Random();
 		int xForBarrier=400;
-		ArrayList<Object> objects = new ArrayList<Object>();
+		ArrayList<GameObject> objects = new ArrayList<GameObject>();
 		
 		objects.add(new Barrier(500,40,50,50,10));
 		
@@ -28,15 +28,15 @@ public class Level1Serializer {
 		
 		objects.add(new ElectricBarrier(400,50,50,20,0,Color.pink));
 		
-		objects.add(new DontTouch1(300, 500));
+		objects.add(new Coin(300, 500));
 		
-		objects.add(new DontTouch1(700, 200));
+		objects.add(new Coin(700, 200));
 		
-		objects.add(new DontTouch1(900, 300));
+		objects.add(new Coin(900, 300));
 		
-		objects.add(new DontTouch1(1300, 0));
+		objects.add(new Coin(1300, 0));
 		
-		objects.add(new DontTouch1(1700, 0));
+		objects.add(new Coin(1700, 0));
 		
 		try {
 	         FileOutputStream fileOut = new FileOutputStream("level1.ser");

@@ -14,7 +14,7 @@ import javax.swing.JComponent;
 public class gameComp extends JComponent{
 	Hero hero=new Hero(100, 500, 50, 50, 20);
 
-	ArrayList<Object> objects = new ArrayList<Object>();
+	ArrayList<GameObject> objects = new ArrayList<GameObject>();
 	private int xForBarrier = 400;
 	Random random = new Random();
 	int level = 1;
@@ -28,7 +28,7 @@ public class gameComp extends JComponent{
 		try {
 			FileInputStream fileIn = new FileInputStream("level" + level + ".ser");
 			ObjectInputStream in = new ObjectInputStream(fileIn);
-			ArrayList<Object> e = (ArrayList<Object>) in.readObject();
+			ArrayList<GameObject> e = (ArrayList<GameObject>) in.readObject();
 			objects = e;
 			in.close();
 			fileIn.close();
@@ -51,7 +51,7 @@ public class gameComp extends JComponent{
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 
-		for (Object i : objects) {
+		for (GameObject i : objects) {
 			i.drawOn(g2);
 		}
 
@@ -59,11 +59,11 @@ public class gameComp extends JComponent{
 	}
 
 	public void update() {
-		for (Object b : this.objects) {
+		for (GameObject b : this.objects) {
 			b.update();
 		}
 
-		for (Object b : this.objects) {
+		for (GameObject b : this.objects) {
 			if (b.overlapsWith(hero)) {
 				b.overlapping();
 			}
