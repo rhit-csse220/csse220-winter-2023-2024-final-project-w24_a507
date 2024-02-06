@@ -19,7 +19,7 @@ public class gameComp extends JComponent {
 	private int xForBarrier = 400;
 	Random random = new Random();
 	int level = 1;
-	final int MAX_LEVEL = 2;
+	final int MAX_LEVEL = 3;
 
 	public gameComp() {
 		this.loadFile(1);
@@ -35,7 +35,7 @@ public class gameComp extends JComponent {
 			fileIn.close();
 
 		} catch (FileNotFoundException e) {
-			System.err.println("File not found");
+			System.err.println("File not found for level " + level);
 		} catch (ClassNotFoundException | IOException e) {
 			System.err.println("Class not found");
 		}
