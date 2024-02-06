@@ -12,6 +12,8 @@ import java.io.Serializable;
 
 public class Hero extends GameObject implements Serializable{
 	
+	private boolean up;
+	
 	public Hero(int x, int y, int width, int height, int constSpeed)
 	{
 		super(x, y, width, height, Color.BLACK, constSpeed);
@@ -26,16 +28,35 @@ public class Hero extends GameObject implements Serializable{
 
 	}
 	
+	public boolean isUp(boolean up)
+	{
+		this.up = up;
+		return up;
+	}
+	
 	public void update() //
 	{
-		y -= super.constantSpeed;
 		
-		if(y < 0)
+		if(up)
 		{
-			y=0;
-			System.out.println("WEEE is off screen");
+			y -= super.constantSpeed;
+			
+			if(y < 0)
+			{
+				y=0;
+				System.out.println("WEEE is off screen");
+			}
 		}
-		
+		else
+		{
+			y += 5;
+			
+			if(y > 700 - 85)
+			{
+				y = 700 - 85;
+			}
+		}
+		this.up = false;
 	}
 	
 	public boolean overlapsWith(Hero hero)

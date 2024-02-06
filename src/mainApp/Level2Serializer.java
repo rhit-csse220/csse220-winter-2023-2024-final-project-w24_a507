@@ -15,7 +15,7 @@ public class Level2Serializer {
 	public void generateFile() {
 		Random random = new Random();
 		int xForBarrier = 400;
-		ArrayList<Object> objects = new ArrayList<Object>();
+		ArrayList<GameObject> objects = new ArrayList<GameObject>();
 
 		objects.add(new Barrier(500, 40, 50, 50, 10));
 

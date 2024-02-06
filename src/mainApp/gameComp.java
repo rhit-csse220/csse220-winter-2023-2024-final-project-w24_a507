@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
@@ -11,8 +12,8 @@ import java.util.Random;
 
 import javax.swing.JComponent;
 
-public class gameComp extends JComponent{
-	Hero hero=new Hero(100, 500, 50, 50, 20);
+public class gameComp extends JComponent {
+	Hero hero = new Hero(100, 500, 50, 50, 20);
 
 	ArrayList<GameObject> objects = new ArrayList<GameObject>();
 	private int xForBarrier = 400;
@@ -32,11 +33,11 @@ public class gameComp extends JComponent{
 			objects = e;
 			in.close();
 			fileIn.close();
-		} catch (IOException i) {
-			i.printStackTrace();
-		} catch (ClassNotFoundException c) {
-			System.out.println("Employee class not found");
-			c.printStackTrace();
+
+		} catch (FileNotFoundException e) {
+			System.err.println("File not found");
+		} catch (ClassNotFoundException | IOException e) {
+			System.err.println("Class not found");
 		}
 
 	}
@@ -74,9 +75,10 @@ public class gameComp extends JComponent{
 			level++;
 			if (level <= MAX_LEVEL) {
 				this.loadFile(level);
-				System.out.println("New Level " + level);
 			}
 		}
+		
+		hero.update();
 	}
 
 	public void removeThings() {
@@ -86,7 +88,7 @@ public class gameComp extends JComponent{
 				objects.remove(i);
 				break;
 			}
-			if(objects.get(i).isOffScreen()) {
+			if (objects.get(i).isOffScreen()) {
 				objects.remove(i);
 				break;
 			}
@@ -95,6 +97,7 @@ public class gameComp extends JComponent{
 
 	public void moveHeroUp() {
 		hero.update();
+		hero.isUp(true);
 	}
-	
+
 }
