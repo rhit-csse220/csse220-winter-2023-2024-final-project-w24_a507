@@ -77,6 +77,7 @@ public class gameComp extends JComponent {
 				this.loadFile(level);
 			}
 		}
+		hero.update();
 	}
 
 	public void removeThings() {
@@ -94,6 +95,7 @@ public class gameComp extends JComponent {
 	}
 
 	public void moveHeroUp() {
+		hero.isUp(true);
 		hero.update();
 	}
 

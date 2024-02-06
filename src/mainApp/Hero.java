@@ -11,6 +11,7 @@ import java.io.Serializable;
  */
 
 public class Hero extends Object implements Serializable{
+	private boolean up=false;
 	
 	public Hero(int x, int y, int width, int height, int constSpeed)
 	{
@@ -28,6 +29,8 @@ public class Hero extends Object implements Serializable{
 	
 	public void update() //
 	{
+		if(up)
+		{
 		y -= super.constantSpeed;
 		
 		if(y < 0)
@@ -35,6 +38,16 @@ public class Hero extends Object implements Serializable{
 			y=0;
 			System.out.println("WEEE is off screen");
 		}
+		}
+		else 
+		{
+			y+=5;
+			if(y>700-85)
+			{
+				y=700-85;
+			}
+		}
+		this.up=false;
 		
 	}
 	
@@ -52,6 +65,11 @@ public class Hero extends Object implements Serializable{
 	protected boolean isCoin() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	protected void isUp(boolean up)
+	{
+		this.up=up;
 	}
 
 }
