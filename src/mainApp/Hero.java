@@ -10,7 +10,7 @@ import java.io.Serializable;
  * Class: Hero 
  */
 
-public class Hero extends Object implements Serializable{
+public class Hero extends GameObject implements Serializable{
 	private boolean up=false;
 	
 	public Hero(int x, int y, int width, int height, int constSpeed)
