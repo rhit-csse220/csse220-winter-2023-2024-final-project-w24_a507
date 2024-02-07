@@ -22,6 +22,8 @@ public class GameLevel {
 		final int frameWidth = 1200;
 		final int frameHeight = 700;
 
+		
+		
 		JFrame frame = new JFrame();
 		frame.setTitle(title);
 		frame.setSize(frameWidth, frameHeight);
