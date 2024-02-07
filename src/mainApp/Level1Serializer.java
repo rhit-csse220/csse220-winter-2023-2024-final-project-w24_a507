@@ -11,6 +11,7 @@ public class Level1Serializer {
 	
 	private final int BARRIER_HEIGHT = 30;
 	private final Color ELECTRIC_BARRIER = Color.pink;
+	private final int COIN_GROUND = 625;
 	
 	public Level1Serializer() {
 		
@@ -20,25 +21,43 @@ public class Level1Serializer {
 		Random random = new Random();
 		ArrayList<GameObject> objects = new ArrayList<GameObject>();
 		
-		objects.add(new Barrier(500,600,200,BARRIER_HEIGHT,45));
+		objects.add(new Barrier(700,600,200,BARRIER_HEIGHT,180));
 		
-		objects.add(new ElectricBarrier(700,450,100,BARRIER_HEIGHT,45,ELECTRIC_BARRIER));
+		objects.add(new ElectricBarrier(1050,450,100,BARRIER_HEIGHT,25,ELECTRIC_BARRIER));
 		
-		/*objects.add(new Barrier(650,500,400,50,30));
+		objects.add(new Barrier(1500,20,150,BARRIER_HEIGHT,-20));
 		
-		objects.add(new Barrier(650,200,50,30,50));
-		
-		objects.add(new ElectricBarrier(400,50,50,20,0,ELECTRIC_BARRIER));*/
-		
-		objects.add(new Coin(300, 450));
-		
-		objects.add(new Coin(400, 450));
-		
-		objects.add(new Coin(500, 450));
+		for (int i = 1; i <= 3; i++) {
+			objects.add(new Coin(500+i*100, 450));
+		}
 		
 		for (int i = 1; i <= 4; i++) {
-			objects.add(new Coin(700 + i*100, 450 - i*75));
+			objects.add(new Coin(900 + i*100, 450 - i*75));
 		}
+		
+		//Player Rest for 500 Pixels ************************************************//
+		
+		for (int i = 1; i <= 4; i++) {
+			objects.add(new Coin(1700 + i*100, COIN_GROUND));
+		}
+		
+		objects.add(new Barrier(2200,700,200,BARRIER_HEIGHT,40));
+		
+		objects.add(new Barrier(2300, 200, 300, BARRIER_HEIGHT, -20));
+		
+		objects.add(new ElectricBarrier(2600, 500, 400, BARRIER_HEIGHT, 0, ELECTRIC_BARRIER));
+		
+		for(int i = 1; i<=4; i++) {
+			objects.add(new Coin(2600 + 100*i, 400));
+		}
+		
+		for(int i = 1; i<=8; i++) {
+			objects.add(new Coin(3000 + i*100, 400-i*50));
+			objects.add(new Coin(3050 + i*100, 450-i*50));
+		}
+		
+		objects.add(new ElectricBarrier(3200,425,500,BARRIER_HEIGHT,25,ELECTRIC_BARRIER));
+		
 		
 		try {
 	         FileOutputStream fileOut = new FileOutputStream("level1.ser");

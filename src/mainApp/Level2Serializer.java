@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Level2Serializer {
+	
 	public Level2Serializer() {
 		
 	}
