@@ -61,6 +61,20 @@ public class gameComp extends JComponent {
 
 	public void update() {
 		for (GameObject b : this.objects) {
+			if(b.isHomingMissile())
+			{
+				if(((HomingMissile) b).decreaseTimer() == 0)
+				{
+					objects.add(new Missile(((HomingMissile) b).yCord(), 75, 50, 40));
+					System.out.println("booty butt");
+					objects.remove(objects.indexOf(b));
+				}
+				
+				if (((HomingMissile) b).updateWarning(hero) > 0) {
+					continue;
+				}
+			}
+			
 			b.update();
 		}
 

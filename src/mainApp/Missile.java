@@ -8,11 +8,11 @@ import java.awt.geom.Arc2D;
 public class Missile extends GameObject {
 	
 	public Missile(int y, int width, int height, int constantSpeed) {
-		super(1350, y, width, height, Color.ORANGE, constantSpeed);
+		super(1300, y, width, height, Color.ORANGE, constantSpeed);
 	}
 	
-	public Missile(int y, int width, int height, Color color, int constantSpeed) {
-		super(1350, y, width, height, color, constantSpeed);
+	public Missile(int width, int height, Color color, int constantSpeed) {
+		super(1125, 0, width, height, color, constantSpeed);
 	}
 	
 	@Override
@@ -40,11 +40,5 @@ public class Missile extends GameObject {
 	protected void overlapping()
 	{
 		System.out.println("PLAYER WAS HIT");
-	}
-	
-	@Override
-	protected boolean isCoin()
-	{
-		return false;
 	}
 }

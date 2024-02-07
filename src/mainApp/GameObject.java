@@ -39,5 +39,13 @@ public abstract class GameObject implements Serializable {
 
 	protected abstract boolean overlapsWith(Hero hero);
 	protected abstract void overlapping();
-	protected abstract boolean isCoin();
+	protected boolean isCoin()
+	{
+		return false;
+	}
+	
+	protected boolean isHomingMissile()
+	{
+		return false;
+	}
 }

@@ -60,12 +60,6 @@ public class Hero extends GameObject implements Serializable{
 	protected void overlapping() {
 		return;
 	}
-
-	@Override
-	protected boolean isCoin() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 	
 	protected void isUp(boolean up)
 	{
