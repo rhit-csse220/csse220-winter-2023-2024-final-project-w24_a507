@@ -73,12 +73,12 @@ public class Level2Serializer {
 		objects.add(new Barrier(800, 500, 200, 2*height, 0,Color.black)); //long top
 		objects.add(new Barrier(850, 500+2*height, 100, 2*height, 0,Color.black)); //long top
 		
-		objects.add(new Barrier(900, 200, 100, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(900, 200, 100, 2*height, -25,Color.black)); //alone
 	
 
 		
-		objects.add(new ElectricBarrier(1300, 210, 150, 2*height, 0, Color.cyan));
-		objects.add(new ElectricBarrier(1400, 200+2*height, 50, 2*height, 0, Color.cyan));
+		objects.add(new ElectricBarrier(1300, 220, 150, 2*height, 0, Color.cyan));
+		objects.add(new ElectricBarrier(1400, 220+2*height, 50, 2*height, 0, Color.cyan));
 		
 		objects.add(new ElectricBarrier(1600, 500, 300, 2*height, 0, Color.BLUE));
 		objects.add(new ElectricBarrier(1650, 500+2*height, 200, 2*height, 0, Color.BLUE));
