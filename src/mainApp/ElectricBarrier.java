@@ -10,7 +10,7 @@ public class ElectricBarrier extends Barrier
 	private Color color;
 	public ElectricBarrier(int x, int y, int width, int height, int rotation,Color color)
 	{
-		super(x,y,width,height,rotation, Color.PINK);
+		super(x,y,width,height,rotation, color);
 		this.color=color;
 	}
 	
