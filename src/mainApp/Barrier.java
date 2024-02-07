@@ -38,6 +38,17 @@ public class Barrier extends GameObject implements Serializable{
 		g.translate(-super.x, -super.y);
 	}
 	
+	public void update()
+	{
+		super.x -= super.constantSpeed;
+		
+		if(super.x + super.width * Math.cos(Math.toRadians(rotation)) < 0)
+		{
+			offScreen=true;
+		//	System.out.println("Object is off screen");
+		}
+	}
+	
 	@Override
 	public boolean overlapsWith(Hero other) {
 		int xDiff =  super.x - other.x;

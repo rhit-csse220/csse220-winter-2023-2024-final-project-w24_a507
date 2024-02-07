@@ -1,4 +1,4 @@
-package mainApp;
+ package mainApp;
 
 import java.awt.Color;
 import java.awt.Graphics2D;

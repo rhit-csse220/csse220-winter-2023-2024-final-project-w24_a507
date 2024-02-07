@@ -21,7 +21,12 @@ public class Level1Serializer {
 		Random random = new Random();
 		ArrayList<GameObject> objects = new ArrayList<GameObject>();
 		
-		objects.add(new Barrier(700,600,200,BARRIER_HEIGHT,180));
+		//*********************TEST
+		objects.add(new Barrier(400, 200, 400, BARRIER_HEIGHT, 0));
+		objects.add(new Coin(600, 200));
+		
+		
+		objects.add(new Barrier(700,600,200,BARRIER_HEIGHT,0));
 		
 		objects.add(new ElectricBarrier(1050,450,100,BARRIER_HEIGHT,25,ELECTRIC_BARRIER));
 		
