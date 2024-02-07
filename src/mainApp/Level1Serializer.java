@@ -9,34 +9,36 @@ import java.util.Random;
 
 public class Level1Serializer {
 	
+	private final int BARRIER_HEIGHT = 30;
+	private final Color ELECTRIC_BARRIER = Color.pink;
+	
 	public Level1Serializer() {
 		
 	}
 	
 	public void generateFile() {
 		Random random = new Random();
-		int xForBarrier=400;
 		ArrayList<GameObject> objects = new ArrayList<GameObject>();
 		
-		objects.add(new Barrier(500,40,50,50,10));
+		objects.add(new Barrier(500,600,200,BARRIER_HEIGHT,45));
 		
-		objects.add(new Barrier(600,200,75,50,0));
+		objects.add(new ElectricBarrier(700,450,100,BARRIER_HEIGHT,45,ELECTRIC_BARRIER));
 		
-		objects.add(new Barrier(650,500,50,50,30));
+		/*objects.add(new Barrier(650,500,400,50,30));
 		
 		objects.add(new Barrier(650,200,50,30,50));
 		
-		objects.add(new ElectricBarrier(400,50,50,20,0,Color.pink));
+		objects.add(new ElectricBarrier(400,50,50,20,0,ELECTRIC_BARRIER));*/
 		
-		objects.add(new Coin(300, 500));
+		objects.add(new Coin(300, 450));
 		
-		objects.add(new Coin(700, 200));
+		objects.add(new Coin(400, 450));
 		
-		objects.add(new Coin(900, 300));
+		objects.add(new Coin(500, 450));
 		
-		objects.add(new Coin(1300, 0));
-		
-		objects.add(new Coin(1700, 0));
+		for (int i = 1; i <= 4; i++) {
+			objects.add(new Coin(700 + i*100, 450 - i*75));
+		}
 		
 		try {
 	         FileOutputStream fileOut = new FileOutputStream("level1.ser");

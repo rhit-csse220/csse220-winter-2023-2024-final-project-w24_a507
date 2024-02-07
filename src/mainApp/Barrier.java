@@ -10,18 +10,20 @@ import java.io.Serializable;
 public class Barrier extends GameObject implements Serializable{
 	
 	protected int rotation;
-	Color colorOfBarrier = Color.CYAN;
+	Color colorOfBarrier;
 	
 	public Barrier(int x, int y, int width, int height, int rotation)
 	{
 		super(x, y, width, height, Color.CYAN, 10);
-		this.rotation=rotation;
+		this.rotation=-rotation;
+		this.colorOfBarrier = Color.CYAN;
 	}
 	
 	public Barrier(int x, int y, int width, int height, int rotation, Color colorOfBarrier)
 	{
 		super(x, y, width, height, colorOfBarrier, 10);
-		this.rotation=rotation;
+		this.rotation=-rotation;
+		this.colorOfBarrier = colorOfBarrier;
 	}
 	
 	@Override
