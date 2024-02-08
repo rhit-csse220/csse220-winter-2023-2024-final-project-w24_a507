@@ -80,6 +80,10 @@ public class gameComp extends JComponent {
 		for (GameObject b : this.objects) {
 			if (b.overlapsWith(hero)) {
 				b.overlapping();
+				if (b.isMissile()) {
+					this.loadFile(level);
+					System.out.println("Missle Hit *************************************\nRestart Level");
+				}
 			}
 
 		}

@@ -44,6 +44,14 @@ public abstract class GameObject implements Serializable {
 		return false;
 	}
 	
+	protected boolean isElectricBarrier() {
+		return false;
+	}
+	
+	protected boolean isMissile() {
+		return false;
+	}
+	
 	protected boolean isHomingMissile()
 	{
 		return false;

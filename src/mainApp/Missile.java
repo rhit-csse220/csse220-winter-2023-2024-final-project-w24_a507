@@ -41,4 +41,9 @@ public class Missile extends GameObject {
 	{
 		System.out.println("PLAYER WAS HIT");
 	}
+	
+	@Override
+	protected boolean isMissile() {
+		return true;
+	}
 }

@@ -62,6 +62,8 @@ public class Level1Serializer {
 		
 		objects.add(new HomingMissile(MISSILE_WIDTH, MISSILE_HEIGHT, 40));
 		
+		objects.add(new Missile(100, MISSILE_WIDTH, MISSILE_HEIGHT, 20));
+		
 		
 		try {
 	         FileOutputStream fileOut = new FileOutputStream("level1.ser");
