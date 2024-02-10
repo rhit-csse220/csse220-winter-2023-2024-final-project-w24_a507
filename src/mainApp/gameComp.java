@@ -25,6 +25,7 @@ public class gameComp extends JComponent {
 	int level = 1;
 	final int MAX_LEVEL = 3;
 	private int counterCoin=0;
+	private int livesLeft=3;
 	
 
 	public gameComp() {
@@ -89,6 +90,12 @@ public class gameComp extends JComponent {
 				if (b.isMissile()) {
 					this.loadFile(level);
 					System.out.println("Missle Hit *************************************\nRestart Level");
+					livesLeft--;
+					if(livesLeft==0)
+					{
+						System.out.println("GAME OVER");
+					}
+					this.updateLabel(counterCoin,livesLeft);
 				}
 			}
 
@@ -113,7 +120,7 @@ public class gameComp extends JComponent {
 //				objects.remove(i);
 				removeMeObjects.add(objects.get(i));
 				this.counterCoin++;
-				this.updateLabel(counterCoin,3);
+				this.updateLabel(counterCoin,livesLeft);
 			}
 			if (objects.get(i).isOffScreen()) {
 				objects.remove(i);
