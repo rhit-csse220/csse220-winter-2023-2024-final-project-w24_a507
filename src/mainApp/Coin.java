@@ -31,13 +31,14 @@ public class Coin extends GameObject implements Serializable{ //coin
 		int xDiff =  super.x - hero.x;
 		int yDiff =  super.y - hero.y;
 		double distance = Math.sqrt(  xDiff*xDiff + yDiff * yDiff );
-		return this.width/2 + hero.width/2 >= distance;
+		return distance<=50;
 	
 	}
 
 	@Override
 	protected void overlapping() {
 		System.out.println("Coin was collected");
+		
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package mainApp;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -7,14 +8,22 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.Timer;
 
 public class GameLevel {
 	private static final int DELAY = 50;
 	private int level = 0;
+	
+	private JLabel label = new JLabel();
+
+	// Call this to update the text on the label.
+	
 
 	public GameLevel() {
 		this.level = 1;
+		
+	
 	}
 
 	public void main() {
@@ -29,7 +38,13 @@ public class GameLevel {
 		frame.setSize(frameWidth, frameHeight);
 		frame.setLocation(0, 0);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		frame.add(label, BorderLayout.NORTH);
+		
+		
 		gameComp game = new gameComp();
+		game.setLabel(this.label);
+		game.updateLabel(0,3);
 		
 		KeyListener goUp=new KeyListener() {
 			
@@ -62,7 +77,7 @@ public class GameLevel {
 			}
 		};
 	
-		frame.addKeyListener( goUp);
+		frame.addKeyListener(goUp);
 	
 		
 		frame.add(game);
@@ -70,8 +85,9 @@ public class GameLevel {
 
 			public void actionPerformed(ActionEvent arg0) {
 				game.update();
-				game.repaint();
 				game.removeThings();
+				game.repaint();
+				
 			}
 		});
 		frame.setVisible(true);

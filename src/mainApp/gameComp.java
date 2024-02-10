@@ -1,5 +1,6 @@
 package mainApp;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -11,15 +12,20 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.JComponent;
+import javax.swing.JLabel;
+
 
 public class gameComp extends JComponent {
 	Hero hero = new Hero(100, 500, 50, 50, 20);
+	JLabel label;
 
 	ArrayList<GameObject> objects = new ArrayList<GameObject>();
 	private int xForBarrier = 400;
 	Random random = new Random();
 	int level = 1;
 	final int MAX_LEVEL = 3;
+	private int counterCoin=0;
+	
 
 	public gameComp() {
 		this.loadFile(1);
@@ -81,22 +87,44 @@ public class gameComp extends JComponent {
 	}
 
 	public void removeThings() {
+		
+		ArrayList<GameObject> removeMeObjects = new ArrayList<GameObject>();
 
+		// Mark them in this loop which is over objects.
 		for (int i = 0; i < objects.size(); i++) {
 			if (objects.get(i).overlapsWith(hero) && objects.get(i).isCoin()) {
-				objects.remove(i);
-				break;
+//				objects.remove(i);
+				removeMeObjects.add(objects.get(i));
+				this.counterCoin++;
+				this.updateLabel(counterCoin,3);
 			}
 			if (objects.get(i).isOffScreen()) {
 				objects.remove(i);
-				break;
+				
 			}
 		}
+		
+		// Remove them in this loop which is over removeMeObjects
+		for(GameObject objs:removeMeObjects)
+		{
+			objects.remove(objs);
+		}
+		
 	}
 
 	public void moveHeroUp() {
 		hero.isUp(true);
 		hero.update();
 	}
+	
+	
+	public void setLabel(JLabel label)
+	{
+		this.label=label;
+	}
+	
+	public void updateLabel(int coins, int lives) {
+		this.label.setText("<html>Coins: " + coins + "<br />Lives: " + lives + "</HTML>");
+	}//updateLabel
 
 }
