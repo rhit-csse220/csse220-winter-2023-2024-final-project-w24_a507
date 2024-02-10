@@ -12,6 +12,8 @@ public class Level1Serializer {
 	private final int BARRIER_HEIGHT = 30;
 	private final Color ELECTRIC_BARRIER = Color.pink;
 	private final int COIN_GROUND = 625;
+	private final int MISSILE_WIDTH = 75;
+	private final int MISSILE_HEIGHT = 50;
 	
 	public Level1Serializer() {
 		
@@ -57,6 +59,10 @@ public class Level1Serializer {
 		}
 		
 		objects.add(new ElectricBarrier(3250,450,500,BARRIER_HEIGHT,25,ELECTRIC_BARRIER));
+		
+		objects.add(new HomingMissile(MISSILE_WIDTH, MISSILE_HEIGHT, 40));
+		
+		objects.add(new Missile(100, MISSILE_WIDTH, MISSILE_HEIGHT, 20));
 		
 		
 		try {
