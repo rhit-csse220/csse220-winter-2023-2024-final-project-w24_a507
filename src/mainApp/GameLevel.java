@@ -27,7 +27,7 @@ public class GameLevel {
 	}
 
 	public void main() {
-		String title = "Level " + level;
+		String title = "Have Fun!";
 		final int frameWidth = 1200;
 		final int frameHeight = 700;
 
@@ -85,6 +85,12 @@ public class GameLevel {
 
 			public void actionPerformed(ActionEvent arg0) {
 				game.update();
+				if(game.livesLeft==0)
+				{
+					frame.setVisible(false);
+					
+					return;
+				}
 				game.removeThings();
 				game.repaint();
 				

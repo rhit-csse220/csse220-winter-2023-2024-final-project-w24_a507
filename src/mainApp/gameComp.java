@@ -25,7 +25,7 @@ public class gameComp extends JComponent {
 	int level = 1;
 	final int MAX_LEVEL = 3;
 	private int counterCoin=0;
-	private int livesLeft=3;
+	protected int livesLeft=3;
 	
 
 	public gameComp() {
@@ -94,6 +94,8 @@ public class gameComp extends JComponent {
 					if(livesLeft==0)
 					{
 						System.out.println("GAME OVER");
+						GameOver over=new GameOver();
+						over.main();
 					}
 					this.updateLabel(counterCoin,livesLeft);
 				}
