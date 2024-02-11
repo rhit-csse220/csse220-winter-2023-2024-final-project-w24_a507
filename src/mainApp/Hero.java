@@ -6,12 +6,15 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.io.Serializable;
 
+import org.w3c.dom.css.RGBColor;
+
 /**
  * Class: Hero 
  */
 
 public class Hero extends GameObject implements Serializable{
 	private boolean up=false;
+	private Color heroColor = new Color(97, 75, 164);
 	
 	public Hero(int x, int y, int width, int height, int constSpeed)
 	{
@@ -21,7 +24,7 @@ public class Hero extends GameObject implements Serializable{
 	public void drawOn(Graphics2D g) {
 		
 		Rectangle heroBox=new Rectangle(x, y, 50, 50);
-		g.setColor(Color.BLACK);
+		g.setColor(heroColor);
 		g.fill(heroBox);
 		g.draw(heroBox);
 
@@ -42,9 +45,9 @@ public class Hero extends GameObject implements Serializable{
 		else 
 		{
 			y+=10;
-			if(y>700-85)
+			if(y>700-120)
 			{
-				y=700-85;
+				y=700-120;
 			}
 		}
 		this.up=false;
