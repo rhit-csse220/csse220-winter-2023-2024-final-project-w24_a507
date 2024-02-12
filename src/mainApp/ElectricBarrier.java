@@ -33,6 +33,11 @@ public class ElectricBarrier extends Barrier
 		return super.width/2 + other.width/2 >= distance;
 		
 	}//overlapsWith
+	
+	protected boolean isElectricBarrier()
+	{
+		return true;
+	}
 }
 
 

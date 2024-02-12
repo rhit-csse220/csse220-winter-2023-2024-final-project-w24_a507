@@ -1,6 +1,5 @@
 package mainApp;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -14,7 +13,6 @@ import java.util.Random;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
-
 public class gameComp extends JComponent {
 	Hero hero = new Hero(100, 500, 50, 50, 20);
 	JLabel label;
@@ -24,9 +22,8 @@ public class gameComp extends JComponent {
 	Random random = new Random();
 	int level = 1;
 	final int MAX_LEVEL = 3;
-	private int counterCoin=0;
-	protected int livesLeft=3;
-	
+	private int counterCoin = 0;
+	protected int livesLeft = 3;
 
 	public gameComp() {
 		this.loadFile(1);
@@ -81,15 +78,47 @@ public class gameComp extends JComponent {
 				}
 			}
 			
+			if(hero.x < 100)
+			{
+				hero.x += 1;
+			}
+			else if(hero.x > 100)
+			{
+				hero.x = 100;
+			}
+			
 			b.update();
 		}
 
 		for (GameObject b : this.objects) {
-			if (b.overlapsWith(hero)) {
+			if (b.overlapsWith(hero)) {				
+				if(b.isBarrier() && b.isElectricBarrier() == false)
+				{
+					int yDiff =  b.y - hero.y;
+					
+					if(hero.x < b.x - 15)
+					{
+						hero.x = b.x - 50;
+					}
+					else if(hero.x > b.x)
+					{
+						if(hero.y + 50 < b.y)
+						{
+							hero.y = b.y;
+						}
+						else if(hero.y > b.y + 30)
+						{
+							hero.y = b.y;
+						}
+					}
+				}
+				
 				b.overlapping();
+				
 				if (b.isMissile()) {
 					this.loadFile(level);
 					System.out.println("Missle Hit *************************************\nRestart Level");
+					
 					livesLeft--;
 					if(livesLeft==0)
 					{
@@ -115,27 +144,26 @@ public class gameComp extends JComponent {
 	public void removeThings() {
 		
 		ArrayList<GameObject> removeMeObjects = new ArrayList<GameObject>();
-
-		// Mark them in this loop which is over objects.
+		
 		for (int i = 0; i < objects.size(); i++) {
 			if (objects.get(i).overlapsWith(hero) && objects.get(i).isCoin()) {
-//				objects.remove(i);
+				objects.remove(i);
 				removeMeObjects.add(objects.get(i));
 				this.counterCoin++;
 				this.updateLabel(counterCoin,livesLeft);
+				objects.remove(i);
+				break;
 			}
 			if (objects.get(i).isOffScreen()) {
 				objects.remove(i);
-				
+				break;
 			}
 		}
 		
-		// Remove them in this loop which is over removeMeObjects
 		for(GameObject objs:removeMeObjects)
 		{
 			objects.remove(objs);
 		}
-		
 	}
 
 	public void moveHeroUp() {
@@ -143,10 +171,9 @@ public class gameComp extends JComponent {
 		hero.update();
 	}
 	
-	
 	public void setLabel(JLabel label)
 	{
-		this.label=label;
+		this.label = label;
 	}
 	
 	public void hColor(Color heroColor)
@@ -158,5 +185,4 @@ public class gameComp extends JComponent {
 	public void updateLabel(int coins, int lives) {
 		this.label.setText("<html>Coins: " + coins + "<br />Lives: " + lives + "</HTML>");
 	}//updateLabel
-
 }
