@@ -68,5 +68,9 @@ public class Hero extends GameObject implements Serializable{
 	{
 		this.up=up;
 	}
+	protected void setColor(Color color)
+	{
+		this.heroColor=color;
+	}
 
 }

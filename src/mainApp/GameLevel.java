@@ -1,6 +1,7 @@
 package mainApp;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -14,16 +15,23 @@ import javax.swing.Timer;
 public class GameLevel {
 	private static final int DELAY = 50;
 	private int level = 0;
+	protected Color heroColor;
 	
 	private JLabel label = new JLabel();
 
 	// Call this to update the text on the label.
 	
 
-	public GameLevel() {
+	public GameLevel(Color heroColor) {
 		this.level = 1;
 		
+		this.heroColor=heroColor;
 	
+	}
+	
+	public GameLevel()
+	{
+		
 	}
 
 	public void main() {
@@ -41,10 +49,12 @@ public class GameLevel {
 		
 		frame.add(label, BorderLayout.NORTH);
 		
-		
+		//thing
 		gameComp game = new gameComp();
+		
 		game.setLabel(this.label);
 		game.updateLabel(0,3);
+		game.hColor(heroColor);
 		
 		KeyListener goUp=new KeyListener() {
 			

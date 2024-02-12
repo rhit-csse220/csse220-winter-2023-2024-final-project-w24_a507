@@ -149,6 +149,12 @@ public class gameComp extends JComponent {
 		this.label=label;
 	}
 	
+	public void hColor(Color heroColor)
+	{
+		hero.setColor(heroColor);
+	}
+	
+	//thing
 	public void updateLabel(int coins, int lives) {
 		this.label.setText("<html>Coins: " + coins + "<br />Lives: " + lives + "</HTML>");
 	}//updateLabel
