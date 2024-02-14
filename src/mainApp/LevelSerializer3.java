@@ -9,6 +9,8 @@ import java.util.Random;
 
 public class LevelSerializer3 {
 	private final int height=30;
+	private final int MISSILE_WIDTH = 75;
+	private final int MISSILE_HEIGHT = 50;
 	
 	public LevelSerializer3() {
 		
@@ -22,155 +24,185 @@ public class LevelSerializer3 {
 		//on screen
 		objects.add(new Barrier(200, 0, 300, 2*height, 0,Color.black)); //long top
 		
-		objects.add(new Barrier(500, 4*height, 200, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(500, 4*height+30, 200, 2*height, 0,Color.black)); //long top
 		
-		objects.add(new Barrier(250, 300, 100, 2*height, 25,Color.black)); //diagnoal down
+		objects.add(new Barrier(250, 300, 150, 2*height, 25,Color.black)); //diagnoal down
 		
 		
-		objects.add(new Barrier(200, 500, 200, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(200, 500, 250, 2*height, 0,Color.black)); //long top
 		objects.add(new Barrier(250, 500-2*height, 100, 2*height, 0,Color.black)); //middle big
 		
-		objects.add(new Barrier(100, 700-2*height, 300, 2*height, 25,Color.black)); //bottom
+		objects.add(new Barrier(500, 700-2*height, 300, 2*height, 25,Color.black)); //bottom
+		
+		
+		//second top part
+		objects.add(new Barrier(750, 0, 500, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(850, 0+2*height, 200, 2*height, 0,Color.black)); //middle big
+		objects.add(new Barrier(800, 0+4*height, 100, 2*height, 0,Color.black)); //bottom
 	
 		
+		objects.add(new Barrier(720, 300, 400, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(770, 300+2*height, 100, 2*height, 0,Color.black)); //middle big
+		objects.add(new Barrier(850, 600-height, 300, 2*height, 0,Color.black)); //too bottom?
 		
-
-		objects.add(new ElectricBarrier(650, 320, 100, 2*height, 0, Color.pink));
-		objects.add(new ElectricBarrier(700, 320+2*height, 50, 2*height, 0, Color.pink));
+//		
+//
+		objects.add(new ElectricBarrier(100, 2*height, 150, 2*height, 0, Color.cyan));
+		objects.add(new ElectricBarrier(550,  6*height+100, 100, 100, -25, Color.cyan));
 		
-		objects.add(new ElectricBarrier(1000, 400, 300, 2*height, 0, Color.green));
-		objects.add(new ElectricBarrier(1100, 400+2*height, 200, 2*height, 0, Color.green));
-		
-		for(int i=0;i<8;i++)
+		objects.add(new ElectricBarrier(1070, 150, 200, 2*height, 0, Color.green));
+		objects.add(new ElectricBarrier(1210, 150+2*height, 60, 2*height, 0, Color.green));
+//		
+		for(int i=0;i<7;i++) //across
 		{
-			for(int j=0;j<5;j++)
+			for(int j=0;j<4;j++) //down
 			{
-				objects.add(new Coin(500+(30*i), 150+(30*j)));
+				objects.add(new Coin(270+(30*i), 2*height+20+(30*j)));
 			}
 		}
-		
-		for(int i=0;i<20;i++)
-		{
-			for(int j=0;j<2;j++)
-			{
-				objects.add(new Coin(1050+(30*i), 30+(30*j)));
-			}
-		}
-		
-		for(int i=0;i<7;i++)
+//		
+		for(int i=0;i<6;i++)
 		{
 			for(int j=0;j<3;j++)
 			{
-				objects.add(new Coin(1100+(30*i), 300+(30*j)));
+				objects.add(new Coin(530+(30*i), 420+(30*j)));
 			}
 		}
-		
-		
-		//off screen
-		objects.add(new Barrier(1200, 100, 500, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(1300, 100+2*height, 200, 2*height, 0,Color.black)); //long top
-		
-		objects.add(new Barrier(1200, 550, 100, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(1250, 550+2*height, 200, 2*height, 0,Color.black)); //long top
-		
-		
-		
-		objects.add(new Barrier(800, 500, 200, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(850, 500+2*height, 100, 2*height, 0,Color.black)); //long top
-		
-		
-		objects.add(new ElectricBarrier(1300, 220, 150, 2*height, 0, Color.cyan));
-		objects.add(new ElectricBarrier(1400, 220+2*height, 50, 2*height, 0, Color.cyan));
-		
-		objects.add(new ElectricBarrier(1600, 500, 300, 2*height, 0, Color.BLUE));
-		objects.add(new ElectricBarrier(1650, 500+2*height, 200, 2*height, 0, Color.BLUE));
-		
-		
-		for(int i=0;i<8;i++)
-		{
-			for(int j=0;j<3;j++)
-			{
-				objects.add(new Coin(2100+(30*i), 350+(30*j)));
-			}
-		}
-		
+//		
 		for(int i=0;i<10;i++)
 		{
-			for(int j=0;j<6;j++)
+			for(int j=0;j<5;j++)
 			{
-				objects.add(new Coin(2450+(30*i), 450+(30*j)));
+				objects.add(new Coin(890+(30*i), 390+(30*j)));
 			}
 		}
 		
 		for(int i=0;i<8;i++)
 		{
-			for(int j=0;j<4;j++)
+			for(int j=0;j<1;j++)
 			{
-				objects.add(new Coin(2200+(30*i), 50+(30*j)));
+				objects.add(new Coin(720+(50*i), 270+(30*j)));
 			}
 		}
+//		
+//		
+		
+		objects.add(new Missile(300,1250, MISSILE_WIDTH, MISSILE_HEIGHT, 20));
+		
+		//off screen
+		objects.add(new Barrier(1350, 10, 500, 2*height, -25,Color.black)); //long top
 		
 		
-		objects.add(new Barrier(1700, 250, 400, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(1850, 250+2*height, 200, 2*height, 0,Color.black)); //long top
-		
-		objects.add(new Barrier(1900, 550, 100, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(1950, 550+2*height, 200, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(1310, 600-height, 400, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(1410, 600-3*height, 200, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(1480, 600-5*height, 100, 2*height, 0,Color.black)); //long top
 		
 		
+		objects.add(new ElectricBarrier(1300, 420, 150, 2*height, 0, Color.pink));
+		
+		objects.add(new Barrier(1800, 400, 50, 300, 0,Color.black)); //long top
+	//	objects.add(new Barrier(850, 500+2*height, 100, 2*height, 0,Color.black)); //long top
 		
 		
-		objects.add(new Barrier(1900, 250, 200, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(1950, 250+2*height, 100, 2*height, 0,Color.black)); //long top
-		
-		//objects.add(new Barrier(1900, 400, 100, 2*height, 0,Color.black)); //long top
-	
-		
-
-		objects.add(new ElectricBarrier(1900, 0, 200, 2*height, 0, Color.magenta));
-		objects.add(new ElectricBarrier(2000, 2*height, 150, 2*height, 0, Color.magenta));
-		
-		objects.add(new ElectricBarrier(2100, 450, 200, 2*height, 0, Color.ORANGE));
-		objects.add(new ElectricBarrier(2150, 450+2*height, 200, 2*height, 0, Color.ORANGE));
+		objects.add(new ElectricBarrier(1600, 0, 200, 2*height, 0, Color.pink));
+		objects.add(new ElectricBarrier(1700, 2*height, 200, 2*height, 0, Color.pink));
 		
 		
-		//further off screen
 		
-		objects.add(new Barrier(2200, 200, 250, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(2300, 200+2*height, 300, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(1950, 0, 50, 250, 0,Color.black)); //long top
+		objects.add(new Barrier(1980, 600-height, 400, 2*height, 0,Color.black)); //long top
 		
-		objects.add(new Barrier(2200, 580, 200, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(2350, 580+2*height, 350, 2*height, 0,Color.black)); //long top
-		
-		
-		objects.add(new Barrier(2450, 320, 150, 2*height, 0,Color.black)); //long top
-	
-		objects.add(new ElectricBarrier(2800, 150, 200, 2*height, 0, Color.magenta));
-		objects.add(new ElectricBarrier(2900, 150+2*height, 100, 2*height, 0, Color.magenta));
-
-		objects.add(new Barrier(2600, 0, 250, 2*height, 0, Color.black));
-		objects.add(new Barrier(2800, 250+2*height, 150, 2*height, 0, Color.black));
-		
-		objects.add(new ElectricBarrier(3000, 450, 300, 2*height, 0, Color.BLUE));
-		objects.add(new ElectricBarrier(3100, 450+2*height, 250, 2*height, 0, Color.BLUE));
-		
-		
-		for(int i=0;i<6;i++)
+		objects.add(new Barrier(2100, 100, 300, 2*height, 10,Color.black)); //long top
+//		
+		objects.add(new ElectricBarrier(2100, 300, 200, 2*height, 0, Color.BLUE));
+		objects.add(new ElectricBarrier(2200, 300+2*height, 100, 2*height, 0, Color.BLUE));
+//		
+//		
+		for(int i=0;i<9;i++)
 		{
 			for(int j=0;j<4;j++)
 			{
-				objects.add(new Coin(3000+(30*i), 20+(30*j)));
+				objects.add(new Coin(1300+(30*i), 200+(30*j)));
 			}
 		}
-		
-		for(int i=0;i<6;i++)
+//		
+		for(int i=0;i<10;i++)
 		{
 			for(int j=0;j<5;j++)
 			{
-				objects.add(new Coin(2800+(30*i), 450+(30*j)));
+				objects.add(new Coin(1870+(30*i), 400+(30*j)));
 			}
 		}
-	
+//		
+		for(int i=0;i<9;i++)
+		{
+			for(int j=0;j<3;j++)
+			{
+				objects.add(new Coin(2050+(30*i), 200+(30*j)));
+			}
+		}
+//		
+//		
+//		objects.add(new Barrier(1700, 250, 400, 2*height, 0,Color.black)); //long top
+//		objects.add(new Barrier(1850, 250+2*height, 200, 2*height, 0,Color.black)); //long top
+//		
+//		objects.add(new Barrier(1900, 550, 100, 2*height, 0,Color.black)); //long top
+//		objects.add(new Barrier(1950, 550+2*height, 200, 2*height, 0,Color.black)); //long top
+//		
+//		
+//		
+//		
+//		objects.add(new Barrier(1900, 250, 200, 2*height, 0,Color.black)); //long top
+//		objects.add(new Barrier(1950, 250+2*height, 100, 2*height, 0,Color.black)); //long top
+//		
+//		//objects.add(new Barrier(1900, 400, 100, 2*height, 0,Color.black)); //long top
+//	
+//		
+//
+//		objects.add(new ElectricBarrier(1900, 0, 200, 2*height, 0, Color.magenta));
+//		objects.add(new ElectricBarrier(2000, 2*height, 150, 2*height, 0, Color.magenta));
+//		
+//		objects.add(new ElectricBarrier(2100, 450, 200, 2*height, 0, Color.ORANGE));
+//		objects.add(new ElectricBarrier(2150, 450+2*height, 200, 2*height, 0, Color.ORANGE));
+//		
+//		
+//		//further off screen
+//		
+//		objects.add(new Barrier(2200, 200, 250, 2*height, 0,Color.black)); //long top
+//		objects.add(new Barrier(2300, 200+2*height, 300, 2*height, 0,Color.black)); //long top
+//		
+//		objects.add(new Barrier(2200, 580, 200, 2*height, 0,Color.black)); //long top
+//		objects.add(new Barrier(2350, 580+2*height, 350, 2*height, 0,Color.black)); //long top
+//		
+//		
+//		objects.add(new Barrier(2450, 320, 150, 2*height, 0,Color.black)); //long top
+//	
+//		objects.add(new ElectricBarrier(2800, 150, 200, 2*height, 0, Color.magenta));
+//		objects.add(new ElectricBarrier(2900, 150+2*height, 100, 2*height, 0, Color.magenta));
+//
+//		objects.add(new Barrier(2600, 0, 250, 2*height, 0, Color.black));
+//		objects.add(new Barrier(2800, 250+2*height, 150, 2*height, 0, Color.black));
+//		
+//		objects.add(new ElectricBarrier(3000, 450, 300, 2*height, 0, Color.BLUE));
+//		objects.add(new ElectricBarrier(3100, 450+2*height, 250, 2*height, 0, Color.BLUE));
+//		
+//		
+//		for(int i=0;i<6;i++)
+//		{
+//			for(int j=0;j<4;j++)
+//			{
+//				objects.add(new Coin(3000+(30*i), 20+(30*j)));
+//			}
+//		}
+//		
+//		for(int i=0;i<6;i++)
+//		{
+//			for(int j=0;j<5;j++)
+//			{
+//				objects.add(new Coin(2800+(30*i), 450+(30*j)));
+//			}
+//		}
+//	
 		
 	//	objects.add(new Missile(400, 75, 50, 40));
 		

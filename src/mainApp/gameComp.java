@@ -81,7 +81,7 @@ public class gameComp extends JComponent {
 			{
 				if(((HomingMissile) b).decreaseTimer() == 0)
 				{
-					objects.add(new Missile(((HomingMissile) b).yCord(), 75, 50, 40));
+					objects.add(new Missile(((HomingMissile) b).yCord(),1300, 75, 50, 40));
 					objects.remove(objects.indexOf(b));
 				}
 				

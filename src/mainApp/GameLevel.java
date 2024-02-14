@@ -83,6 +83,22 @@ public class GameLevel {
 							
 							
 					}
+				else if(e.getKeyCode()==KeyEvent.VK_U)
+				{
+						//System.out.println("here");
+					game.level++;
+						game.loadFile(game.level);
+						
+						
+				}
+				else if(e.getKeyCode()==KeyEvent.VK_D)
+				{
+						//System.out.println("here");
+					game.level--;
+						game.loadFile(game.level);
+						
+						
+				}
 				
 			}
 		};
