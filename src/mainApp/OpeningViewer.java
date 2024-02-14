@@ -5,6 +5,7 @@ import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -32,13 +33,26 @@ public class OpeningViewer {
         
         JButton goToGame=new JButton("Go to Game");
         forGameBut.add(goToGame);
-        
+     
         JLabel pickHeroColor= new JLabel();
         pickHeroColor.setText("<html>Pick the color of your player. If no color is selected, the player will be purple.</HTML>");
         frame.add(pickHeroColor,BorderLayout.NORTH);
         
         JPanel forHeroBut=new JPanel();
         frame.add(forHeroBut,BorderLayout.WEST);
+        
+        
+       //testing smthg
+        
+        ImageIcon backgroundImage=new ImageIcon(this.getClass().getResource());
+        
+        JLabel forImage=new JLabel(backgroundImage);
+        forImage.setSize(600,200);
+        
+        forImage.add(forHeroBut);
+        forImage.add(forGameBut);
+        forImage.add(pickHeroColor);
+        
         
         
         

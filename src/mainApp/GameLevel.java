@@ -10,6 +10,7 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.Timer;
 
 public class GameLevel {
@@ -55,6 +56,24 @@ public class GameLevel {
 		game.setLabel(this.label);
 		game.updateLabel(0,3);
 		game.hColor(heroColor);
+		
+		//new stuff
+		game.setBounds(0, 0, frameWidth, frameHeight); // Sets the game's size to 1200 x 700
+
+		JLayeredPane layeredPane = new JLayeredPane();  // Creates a new LayeredPane for the object stacking                  // In theory it's not needed, but I'll keep it
+		frame.add(layeredPane);
+		// Add the pane to the frame
+
+		label.setLocation(0, 0);
+	// Positions the label to the top left corner
+		label.setBounds(0, 0, 60, 30);                 // The label has space to be drawn in the corner
+
+		layeredPane.setLocation(0, 0);                  // Move the pane to the top left corner of the screen
+		layeredPane.add(label,2);                      // Add the label to the layer above
+		layeredPane.add(game, 1);   
+		
+		frame.setVisible(true);
+		// Add the game to the current layer
 		
 		KeyListener goUp=new KeyListener() {
 			
@@ -122,7 +141,7 @@ public class GameLevel {
 				
 			}
 		});
-		frame.setVisible(true);
+	
 		t.start();
 
 	}

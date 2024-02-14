@@ -39,15 +39,15 @@ public class Hero extends GameObject implements Serializable{
 		if(y < 0)
 		{
 			y=0;
-			System.out.println("WEEE is off screen");
+			//System.out.println("WEEE is off screen");
 		}
 		}
 		else 
 		{
 			y+=10;
-			if(y>600)
+			if(y>620)
 			{
-				y=600;
+				y=620;
 			}
 		}
 		this.up=false;
