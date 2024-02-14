@@ -1,7 +1,14 @@
 package mainApp;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Panel;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,38 +36,72 @@ public class OpeningViewer {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         JPanel forGameBut=new JPanel();
-        frame.add(forGameBut,BorderLayout.SOUTH);
+       // frame.add(forGameBut,BorderLayout.SOUTH);
         
         JButton goToGame=new JButton("Go to Game");
+        goToGame.setBackground(Color.white);
         forGameBut.add(goToGame);
      
         JLabel pickHeroColor= new JLabel();
-        pickHeroColor.setText("<html>Pick the color of your player. If no color is selected, the player will be purple.</HTML>");
-        frame.add(pickHeroColor,BorderLayout.NORTH);
+        pickHeroColor.setText("<html><font color='black'>Pick the color of your player. If no color is selected, the player will be purple.</font></HTML>");
+        pickHeroColor.setFont(new Font("Verdana", Font.BOLD, 12));
+        //     frame.add(pickHeroColor,BorderLayout.NORTH);
         
         JPanel forHeroBut=new JPanel();
-        frame.add(forHeroBut,BorderLayout.WEST);
+        //frame.add(forHeroBut,BorderLayout.WEST);
         
-        
+      //  ImageIcon backgroundImage=new ImageIcon("C:\\Users\\wilhelk\\git\\csse220-winter-2023-2024-final-project-w24_a507\\src\\mainApp\\flowers.jpg");
+//      
        //testing smthg
+//        JPanel imageP = new JPanel()
+//		{			
+//			protected void paintComponent(Graphics g)
+//			{
+//				//  Dispaly image at full size
+//				g.drawImage(backgroundImage.getImage(), 0, 0, null); 	
+//				super.paintComponent(g);
+//			}
+//		};
+//		imageP.setOpaque( false );
+//		imageP.setPreferredSize( new Dimension(600, 200) );	
+//		frame.add( imageP ); 
+//		imageP.setLayout(new BorderLayout()); 		
         
-        ImageIcon backgroundImage=new ImageIcon(this.getClass().getResource());
+       ImageIcon backgroundImage=new ImageIcon("C:\\Users\\wilhelk\\git\\csse220-winter-2023-2024-final-project-w24_a507\\Images\\grass.jpg");
         
-        JLabel forImage=new JLabel(backgroundImage);
+        JLabel forImage=new JLabel();
+        forImage.setIcon(backgroundImage);
         forImage.setSize(600,200);
+       
+        forImage.setLayout(new BorderLayout());
+        forHeroBut.setOpaque(false);
+        forGameBut.setOpaque(false);
+        pickHeroColor.setOpaque(false);
         
-        forImage.add(forHeroBut);
-        forImage.add(forGameBut);
-        forImage.add(pickHeroColor);
+        forImage.add(forHeroBut,BorderLayout.WEST);
         
-        
-        
+        forImage.add(forGameBut,BorderLayout.SOUTH);
+        forImage.add(pickHeroColor,BorderLayout.NORTH);
+       
+      
+       
+        frame.add(forImage);
+		
+		
+	
+        frame.setVisible(true);
+		
         
         JButton colorP=new JButton("Purple");
+        colorP.setBackground(Color.white);
         JButton colorB=new JButton("Blue");
+        colorB.setBackground(Color.white);
         JButton colorR=new JButton("Red");
+        colorR.setBackground(Color.white);
         JButton colorG=new JButton("Green");
+        colorG.setBackground(Color.white);
         JButton colorO=new JButton("Orange");
+        colorO.setBackground(Color.white);
         
         forHeroBut.add(colorO);
         forHeroBut.add(colorG);
@@ -144,8 +185,7 @@ public class OpeningViewer {
         goToGame.addActionListener(new goToGame());
         
        
-        frame.setVisible(true);
-		
+    
 	}
 	
 }
