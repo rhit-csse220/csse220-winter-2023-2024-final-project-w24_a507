@@ -8,6 +8,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -48,7 +49,7 @@ public class GameLevel {
 		frame.setLocation(0, 0);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		frame.add(label, BorderLayout.NORTH);
+	//	frame.add(label, BorderLayout.NORTH);
 		
 		//thing
 		gameComp game = new gameComp();
@@ -61,16 +62,39 @@ public class GameLevel {
 		game.setBounds(0, 0, frameWidth, frameHeight); // Sets the game's size to 1200 x 700
 
 		JLayeredPane layeredPane = new JLayeredPane();  // Creates a new LayeredPane for the object stacking                  // In theory it's not needed, but I'll keep it
-		frame.add(layeredPane);
+		//frame.add(layeredPane);
 		// Add the pane to the frame
 
 		label.setLocation(0, 0);
 	// Positions the label to the top left corner
-		label.setBounds(0, 0, 60, 30);                 // The label has space to be drawn in the corner
+		label.setBounds(0, 0, 100, 50);                 // The label has space to be drawn in the corner
 
 		layeredPane.setLocation(0, 0);                  // Move the pane to the top left corner of the screen
 		layeredPane.add(label,2);                      // Add the label to the layer above
-		layeredPane.add(game, 1);   
+		layeredPane.add(game, 1); 
+		
+		
+		
+		ImageIcon gameImage=new ImageIcon("C:\\Users\\wilhelk\\git\\csse220-winter-2023-2024-final-project-w24_a507\\Images\\Trees.png");
+        
+        JLabel forImage=new JLabel();
+        forImage.setIcon(gameImage);
+        forImage.setSize(1200,700);
+       
+        forImage.setLayout(new BorderLayout());
+        
+        game.setOpaque(false);
+        layeredPane.setOpaque(false);
+        forImage.add(game);
+        forImage.add(layeredPane);
+        
+       
+        frame.add(forImage);
+		
+		
+		
+		
+		
 		
 		frame.setVisible(true);
 		// Add the game to the current layer
@@ -125,7 +149,7 @@ public class GameLevel {
 		frame.addKeyListener(goUp);
 	
 		
-		frame.add(game);
+	//	frame.add(game);
 		Timer t = new Timer(DELAY, new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {

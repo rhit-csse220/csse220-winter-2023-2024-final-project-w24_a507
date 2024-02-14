@@ -1,6 +1,7 @@
 package mainApp;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.FileInputStream;
@@ -201,6 +202,7 @@ public class gameComp extends JComponent {
 	
 	//thing
 	public void updateLabel(int coins, int lives) {
-		this.label.setText("<html>Coins: " + coins + "<br />Lives: " + lives + "</HTML>");
+		this.label.setText("<html><font color='white'>Coins: " + coins + "<br />Lives: " + lives + "</font></HTML>");
+		 this.label.setFont(new Font("Verdana", Font.BOLD, 14));
 	}//updateLabel
 }
