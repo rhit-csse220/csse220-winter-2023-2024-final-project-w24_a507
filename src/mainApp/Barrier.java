@@ -60,7 +60,7 @@ public class Barrier extends GameObject implements Serializable{
 	
 	@Override
 	protected void overlapping() {
-		System.out.println("PLAYER WAS HIT");		
+	//	System.out.println("PLAYER WAS HIT");		
 	}
 	
 	protected boolean isBarrier()
