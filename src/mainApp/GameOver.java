@@ -1,11 +1,16 @@
 package mainApp;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GameOver {
@@ -24,11 +29,37 @@ public class GameOver {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel forButton=new JPanel();
-		frame.add(forButton, BorderLayout.SOUTH);
+		forButton.setBackground(Color.white);
+		//frame.add(forButton, BorderLayout.SOUTH);
+		
+		
+		
 		
 		
 		JButton restartGame=new JButton("Restart Game");
-        forButton.add(restartGame);
+		restartGame.setBackground(Color.white);
+		restartGame.setPreferredSize(new Dimension(150, 50));
+        forButton.add(restartGame, BorderLayout.CENTER);
+        
+        
+        
+        ImageIcon backgroundImage=new ImageIcon("C:\\Users\\wilhelk\\git\\csse220-winter-2023-2024-final-project-w24_a507\\Images\\pexels-sebastian-sørensen-1276518.jpg");
+        
+        JLabel forImage=new JLabel();
+        forImage.setIcon(backgroundImage);
+        forImage.setSize(1200,700);
+       
+        forImage.setLayout(new BorderLayout());
+      
+        forButton.setOpaque(false);
+        forImage.add(forButton,BorderLayout.SOUTH);
+       
+        frame.add(forImage);
+		
+		
+	
+        frame.setVisible(true);
+        
         
         class restartGame implements ActionListener
         {
