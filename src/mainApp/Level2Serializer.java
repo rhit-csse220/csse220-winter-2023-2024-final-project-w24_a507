@@ -9,6 +9,8 @@ import java.util.Random;
 
 public class Level2Serializer {
 	private final int height=30;
+	private final int MISSILE_WIDTH = 75;
+	private final int MISSILE_HEIGHT = 50;
 	
 	public Level2Serializer() {
 		
@@ -80,6 +82,8 @@ public class Level2Serializer {
 		objects.add(new ElectricBarrier(1600, 610-2*height, 300, 2*height, 0, Color.BLUE));
 		objects.add(new ElectricBarrier(1650, 610, 200, 2*height, 0, Color.BLUE));
 		
+		objects.add(new Missile(2000, 300, MISSILE_HEIGHT, MISSILE_HEIGHT, 20));
+		objects.add(new Missile(1000, 500, MISSILE_HEIGHT, MISSILE_HEIGHT, 20));
 		
 		for(int i=0;i<8;i++)
 		{

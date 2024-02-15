@@ -7,6 +7,10 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * 
+ */
+
 public class ScoreSerializer {
 
 	ArrayList<Score> highScores = new ArrayList<>();
