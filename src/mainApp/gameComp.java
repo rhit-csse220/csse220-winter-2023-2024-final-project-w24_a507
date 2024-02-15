@@ -152,6 +152,11 @@ public class gameComp extends JComponent {
 			if (level <= MAX_LEVEL) {
 				this.loadFile(level);
 			}
+			else {
+				System.out.println("Game won!!!");
+				GameWon won = new GameWon(counterCoin + MAX_LEVEL*100);
+				won.main();
+			}
 		}
 		
 		hero.update();

@@ -44,7 +44,9 @@ public class MainApp {
 		Level2Serializer level2 = new Level2Serializer();
 		LevelSerializer3 level3 = new LevelSerializer3();
 		LevelSerializer4 level4 = new LevelSerializer4();
+//		ScoreSerializer hi  = new ScoreSerializer(new ArrayList<Score>(), "Thor", 0);
 		
+//		hi.generateFile();
 		level1.generateFile();
 		level2.generateFile();
 		level3.generateFile();

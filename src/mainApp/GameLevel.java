@@ -153,8 +153,10 @@ public class GameLevel {
 		Timer t = new Timer(DELAY, new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
-				game.update();
-				if(game.livesLeft==0)
+				
+				if (game.level <= game.MAX_LEVEL) game.update();					
+
+				if(game.livesLeft==0 || game.level > game.MAX_LEVEL)
 				{
 					frame.setVisible(false);
 					
