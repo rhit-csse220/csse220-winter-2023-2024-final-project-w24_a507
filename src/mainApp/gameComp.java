@@ -68,6 +68,16 @@ public class gameComp extends JComponent {
 		
 		for (GameObject b : this.objects) {
 			b.update();
+			
+			if(hero.x < 100)
+			{
+				hero.x += 1;
+			}
+			
+			if(hero.getIsOffScreen())
+			{
+				subtractLife();
+			}
 		}
 		
 		for (GameObject b : this.objects) {
@@ -89,20 +99,8 @@ public class gameComp extends JComponent {
 				if (((HomingMissile) b).updateWarning(hero) > 0) {
 					continue;
 				}
+				
 			}
-//			
-//			if(hero.x < 100)
-//			{
-//				hero.x += 1;
-//			}
-//			else if(hero.x > 100)
-//			{
-//				hero.x = 100;
-//			}
-//			
-//			b.update();
-//		}
-//
 		
 			if (b.overlapsWith(hero)) {				
 				
@@ -112,34 +110,59 @@ public class gameComp extends JComponent {
 					this.loadFile(level);
 					System.out.println("Missle Hit *************************************\nRestart Level");
 					
-					livesLeft--;
-					if(livesLeft==0)
-					{
-						System.out.println("GAME OVER");
-						GameOver over=new GameOver();
-						over.main();
-					}
-					this.updateLabel(counterCoin,livesLeft);
+					subtractLife();
 				}
 				
 			}
 			
 			if(b.isBarrier())
 			{
-				if(((Barrier) b).overlapsWithRight(hero))
+				
+				if(((Barrier) b).overlapsWithTop(hero))
 				{
-					hero.x = b.x - 50;
-					System.out.println("Pushing left");
+					hero.y = b.y - 70;
+					
+					if(((Barrier) b).isElectricBarrier())
+					{
+						subtractLife();
+					}
 				}
-				else if(((Barrier) b).overlapsWith(hero) || ((Barrier) b).overlapsWithTopRight(hero))
+				else if(((Barrier) b).overlapsWithBottom(hero))
+				{
+					hero.y = b.y + b.height - 10;
+					
+					if(((Barrier) b).isElectricBarrier())
+					{
+						subtractLife();
+					}
+				}
+				else if(((Barrier) b).overlapsWithRight(hero))
+				{
+					hero.x = b.x - 51;
+					
+					if(((Barrier) b).isElectricBarrier())
+					{
+						subtractLife();
+					}
+				}
+				
+				if(((Barrier) b).overlapsWithTopLeft(hero) || ((Barrier) b).overlapsWithTopRight(hero))
 				{
 					hero.y = ((Barrier) b).getSecondYCoord();
-					System.out.println("Top Left/Right");
+					
+					if(((Barrier) b).isElectricBarrier())
+					{
+						subtractLife();
+					}
 				}
 				else if(((Barrier) b).overlapsWithBottomLeft(hero) || ((Barrier) b).overlapsWithBottomRight(hero))
 				{
-					hero.y = ((Barrier) b).getSecondYCoord() - 75;
-					System.out.println("Bottom Left/Right");
+					hero.y = ((Barrier) b).getSecondYCoord() - hero.height - 20;
+					
+					if(((Barrier) b).isElectricBarrier())
+					{
+						subtractLife();
+					}
 				}
 			}
 			
@@ -201,6 +224,18 @@ public class gameComp extends JComponent {
 	public void hColor(Color heroColor)
 	{
 		hero.setColor(heroColor);
+	}
+	
+	public void subtractLife()
+	{
+		livesLeft--;
+		if(livesLeft==0)
+		{
+			System.out.println("GAME OVER");
+			GameOver over=new GameOver();
+			over.main();
+		}
+		this.updateLabel(counterCoin,livesLeft);
 	}
 	
 	//thing

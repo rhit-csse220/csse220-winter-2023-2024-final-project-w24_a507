@@ -15,6 +15,7 @@ import org.w3c.dom.css.RGBColor;
 public class Hero extends GameObject implements Serializable{
 	private boolean up=false;
 	private Color heroColor = new Color(97, 75, 164);
+	private boolean isOffScreen = false;
 	
 	public Hero(int x, int y, int width, int height, int constSpeed)
 	{
@@ -55,6 +56,11 @@ public class Hero extends GameObject implements Serializable{
 		}
 		this.up=false;
 		
+		if(super.x + super.width < 0)
+		{
+			isOffScreen = true;
+		}
+		
 	}
 	
 	public boolean overlapsWith(Hero hero)
@@ -74,6 +80,11 @@ public class Hero extends GameObject implements Serializable{
 	protected void setColor(Color color)
 	{
 		this.heroColor=color;
+	}
+	
+	public boolean getIsOffScreen()
+	{
+		return isOffScreen;
 	}
 
 }

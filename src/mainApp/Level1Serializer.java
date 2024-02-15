@@ -58,12 +58,7 @@ public class Level1Serializer {
 			objects.add(new Coin(3050 + i*100, 450-i*50));
 		}
 		
-		objects.add(new ElectricBarrier(3250,450,500,BARRIER_HEIGHT,25,ELECTRIC_BARRIER));
-		
-		objects.add(new HomingMissile(MISSILE_WIDTH, MISSILE_HEIGHT, 40, 30));
-		
-		objects.add(new Missile(100,1300, MISSILE_WIDTH, MISSILE_HEIGHT, 20));
-		
+		objects.add(new ElectricBarrier(3250,450,500,BARRIER_HEIGHT,25,ELECTRIC_BARRIER));		
 		
 		try {
 	         FileOutputStream fileOut = new FileOutputStream("level1.ser");
