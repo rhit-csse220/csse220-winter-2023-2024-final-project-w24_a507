@@ -1,5 +1,6 @@
 package mainApp;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -42,6 +43,7 @@ public class GameWonHighScores extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		g.setColor(Color.RED);
 		g.drawString("High Scores:", 550, 150);
 		g.drawString("Your score: " + this.playerScore, 550, 100);
 		

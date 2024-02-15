@@ -53,8 +53,7 @@ public class GameWon {
 		JTextField playerName = new JTextField("Type your name here", 25);
 		forButton.add(playerName);
 
-		ImageIcon backgroundImage = new ImageIcon(
-				"C:\\Users\\wilhelk\\git\\csse220-winter-2023-2024-final-project-w24_a507\\Images\\pexels-sebastian-sørensen-1276518.jpg");
+		ImageIcon backgroundImage = new ImageIcon("Images\\pexels-sebastian-sørensen-1276518.jpg");
 
 		JLabel forImage = new JLabel();
 		forImage.setIcon(backgroundImage);
