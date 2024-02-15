@@ -43,7 +43,7 @@ public class GameWonHighScores extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.setColor(Color.RED);
+		g.setColor(Color.WHITE);
 		g.drawString("High Scores:", 550, 150);
 		g.drawString("Your score: " + this.playerScore, 550, 100);
 		

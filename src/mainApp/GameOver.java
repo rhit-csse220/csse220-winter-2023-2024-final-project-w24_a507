@@ -3,6 +3,7 @@ package mainApp;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,8 +33,12 @@ public class GameOver {
 		forButton.setBackground(Color.white);
 		//frame.add(forButton, BorderLayout.SOUTH);
 		
+		JLabel gameOverText=new JLabel();
+		gameOverText.setText("<html><font color='white'>GAME OVER!</font></HTML>");
+		gameOverText.setFont(new Font("Verdana", Font.BOLD, 60));
 		
-		
+		JPanel forText=new JPanel();
+		forText.add(gameOverText,BorderLayout.CENTER);
 		
 		
 		JButton restartGame=new JButton("Restart Game");
@@ -52,7 +57,10 @@ public class GameOver {
         forImage.setLayout(new BorderLayout());
       
         forButton.setOpaque(false);
+        forText.setOpaque(false);
+        forImage.add(forText,BorderLayout.NORTH);
         forImage.add(forButton,BorderLayout.SOUTH);
+       
        
         frame.add(forImage);
 		
