@@ -44,7 +44,7 @@ public class Hero extends GameObject implements Serializable{
 		}
 		else 
 		{
-			y+=10;
+			y+=20;
 			if(y>700-120)
 			{
 				y=700-120;

@@ -11,6 +11,10 @@ public class Barrier extends GameObject implements Serializable{
 	
 	protected int rotation;
 	Color colorOfBarrier;
+	private double firstXCoord;
+	private double firstYCoord;
+	private double secondXCoord;
+	private double secondYCoord;
 	
 	public Barrier(int x, int y, int width, int height, int rotation)
 	{
@@ -50,13 +54,95 @@ public class Barrier extends GameObject implements Serializable{
 	}
 	
 	@Override
-	public boolean overlapsWith(Hero other) {
-		int xDiff =  super.x - other.x;
-		int yDiff =  super.y - other.y;
-		double distance = Math.sqrt(  xDiff*xDiff + yDiff * yDiff );
-		return this.width/2 + other.width/2 >= distance;
+	public boolean overlapsWith(Hero other) { // Overlaps with top left
+		firstXCoord = super.x + Math.sin(Math.toRadians(rotation)) * super.height;
+		firstYCoord = super.y + Math.cos(Math.toRadians(rotation)) * super.height;
 		
+		secondXCoord = firstXCoord + Math.cos(Math.toRadians(rotation)) * super.width;
+		secondYCoord = firstYCoord + Math.tan(Math.toRadians(rotation)) * (other.x - firstYCoord);
+		
+		if(other.x >= firstXCoord && other.x <= secondXCoord && other.y <= firstYCoord && other.y >= secondYCoord)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+			
 	}//overlapsWith
+	
+	public boolean overlapsWithTopRight(Hero other)
+	{
+		int heroXRight = other.x + other.width;
+		
+		firstXCoord = super.x + Math.sin(Math.toRadians(rotation)) * super.height;
+		firstYCoord = super.y + Math.cos(Math.toRadians(rotation)) * super.height;
+		
+		secondXCoord = firstXCoord + Math.cos(Math.toRadians(rotation)) * super.width;
+		secondYCoord = firstYCoord + Math.tan(Math.toRadians(rotation)) * (heroXRight - firstXCoord);
+		
+		if(heroXRight >= firstXCoord && other.x <= secondXCoord && other.y >= firstYCoord && other.y <= secondYCoord)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public boolean overlapsWithBottomLeft(Hero other)
+	{
+		int heroYBottom = other.y + other.height;
+		
+		secondXCoord = super.x + Math.cos(Math.toRadians(rotation)) * super.width;
+		secondYCoord = super.y + Math.tan(Math.toRadians(rotation)) * (other.x - super.x);
+		
+		if(other.x >= super.x && other.x <= secondXCoord && heroYBottom <= super.y && heroYBottom >= secondYCoord)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public boolean overlapsWithBottomRight(Hero other)
+	{
+		int heroXRight = other.x + width;
+		int heroYBottom = other.y + height;
+		
+		secondXCoord = super.x + Math.cos(Math.toRadians(rotation)) * super.width;
+		secondYCoord = super.y + Math.tan(Math.toRadians(rotation)) * (heroXRight - super.x);
+		
+		if(heroXRight >= super.x && other.x <= secondXCoord && heroYBottom >= super.y && heroYBottom <= secondYCoord)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public boolean overlapsWithRight(Hero other)
+	{
+		int heroXRight = other.x + other.width;
+		int heroYBottom = other.y + other.height;
+		
+		
+		if(heroXRight >= super.x + Math.sin(Math.toRadians(rotation)) * super.height && other.x <= super.x &&
+				other.y <= super.y && heroYBottom >= super.y)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 	
 	@Override
 	protected void overlapping() {
@@ -66,5 +152,15 @@ public class Barrier extends GameObject implements Serializable{
 	protected boolean isBarrier()
 	{
 		return true;
+	}
+	
+	public int getSecondYCoord()
+	{
+		return (int) secondYCoord;
+	}
+	
+	public int getRotation()
+	{
+		return rotation;
 	}
 }

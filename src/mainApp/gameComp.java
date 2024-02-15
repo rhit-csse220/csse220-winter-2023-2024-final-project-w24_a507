@@ -92,26 +92,6 @@ public class gameComp extends JComponent {
 
 		for (GameObject b : this.objects) {
 			if (b.overlapsWith(hero)) {				
-				if(b.isBarrier() && b.isElectricBarrier() == false)
-				{
-					int yDiff =  b.y - hero.y;
-					
-					if(hero.x < b.x - 15)
-					{
-						hero.x = b.x - 50;
-					}
-					else if(hero.x > b.x)
-					{
-						if(hero.y + 50 < b.y)
-						{
-							hero.y = b.y;
-						}
-						else if(hero.y > b.y + 30)
-						{
-							hero.y = b.y;
-						}
-					}
-				}
 				
 				b.overlapping();
 				
@@ -127,6 +107,25 @@ public class gameComp extends JComponent {
 						over.main();
 					}
 					this.updateLabel(counterCoin,livesLeft);
+				}
+			}
+			
+			if(b.isBarrier())
+			{
+				if(((Barrier) b).overlapsWithRight(hero))
+				{
+					hero.x = b.x - 50;
+					System.out.println("Pushing left");
+				}
+				else if(((Barrier) b).overlapsWith(hero) || ((Barrier) b).overlapsWithTopRight(hero))
+				{
+					hero.y = ((Barrier) b).getSecondYCoord();
+					System.out.println("Top Left/Right");
+				}
+				else if(((Barrier) b).overlapsWithBottomLeft(hero) || ((Barrier) b).overlapsWithBottomRight(hero))
+				{
+					hero.y = ((Barrier) b).getSecondYCoord() - 75;
+					System.out.println("Bottom Left/Right");
 				}
 			}
 

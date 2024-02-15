@@ -60,7 +60,7 @@ public class Level1Serializer {
 		
 		objects.add(new ElectricBarrier(3250,450,500,BARRIER_HEIGHT,25,ELECTRIC_BARRIER));
 		
-		objects.add(new HomingMissile(MISSILE_WIDTH, MISSILE_HEIGHT, 40));
+		objects.add(new HomingMissile(MISSILE_WIDTH, MISSILE_HEIGHT, 40, 30));
 		
 		objects.add(new Missile(100, MISSILE_WIDTH, MISSILE_HEIGHT, 20));
 		

@@ -7,11 +7,12 @@ import java.awt.geom.Arc2D;
 
 public class HomingMissile extends Missile {
 	
-	private int timer = 30;
+	private int timer;
 	
-	public HomingMissile(int width, int height, int constantSpeed)
+	public HomingMissile(int width, int height, int constantSpeed, int timer)
 	{
 		super(width, height, Color.RED, constantSpeed);
+		this.timer = timer;
 	}
 	
 	public int updateWarning(Hero hero)
