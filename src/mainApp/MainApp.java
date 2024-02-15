@@ -43,9 +43,12 @@ public class MainApp {
 		Level1Serializer level1 = new Level1Serializer();
 		Level2Serializer level2 = new Level2Serializer();
 		LevelSerializer3 level3 = new LevelSerializer3();
+		LevelSerializer4 level4 = new LevelSerializer4();
+		
 		level1.generateFile();
 		level2.generateFile();
 		level3.generateFile();
+		level4.generateFile();
 		MainApp mainApp = new MainApp();
 		mainApp.runApp();		
 	} // main

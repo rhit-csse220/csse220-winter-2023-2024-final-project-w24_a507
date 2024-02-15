@@ -22,10 +22,10 @@ public class Level2Serializer {
 		//on screen
 		objects.add(new Barrier(300, 0, 500, 2*height, 0,Color.black)); //long top
 		objects.add(new Barrier(350, 2*height, 200, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(650, 2*height, 50, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(650, 2*height, 100, 2*height, 0,Color.black)); //long top
 		
-		objects.add(new Barrier(800, 500, 200, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(850, 500+2*height, 100, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(800, 610, 200, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(850, 610-2*height, 100, 2*height, 0,Color.black)); //long top
 		
 		objects.add(new Barrier(900, 200, 100, 2*height, 25,Color.black)); //long top
 	
@@ -65,20 +65,20 @@ public class Level2Serializer {
 		objects.add(new Barrier(1200, 100, 500, 2*height, 0,Color.black)); //long top
 		objects.add(new Barrier(1300, 100+2*height, 200, 2*height, 0,Color.black)); //long top
 		
-		objects.add(new Barrier(1200, 550, 100, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(1250, 550+2*height, 200, 2*height, 0,Color.black)); //long top
+//		objects.add(new Barrier(1200, 610-2*height, 100, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(1250, 610, 300, 2*height, 0,Color.black)); //long top
 		
 		
+//		
+//		objects.add(new Barrier(800, 500, 200, 2*height, 0,Color.black)); //long top
+//		objects.add(new Barrier(850, 610, 100, 2*height, 0,Color.black)); //long top
 		
-		objects.add(new Barrier(800, 500, 200, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(850, 500+2*height, 100, 2*height, 0,Color.black)); //long top
+//		
+//		objects.add(new ElectricBarrier(1500, 220, 150, 2*height, 0, Color.cyan));
+//		objects.add(new ElectricBarrier(1600, 220+2*height, 100, 2*height, 0, Color.cyan));
 		
-		
-		objects.add(new ElectricBarrier(1300, 220, 150, 2*height, 0, Color.cyan));
-		objects.add(new ElectricBarrier(1400, 220+2*height, 50, 2*height, 0, Color.cyan));
-		
-		objects.add(new ElectricBarrier(1600, 500, 300, 2*height, 0, Color.BLUE));
-		objects.add(new ElectricBarrier(1650, 500+2*height, 200, 2*height, 0, Color.BLUE));
+		objects.add(new ElectricBarrier(1600, 610-2*height, 300, 2*height, 0, Color.BLUE));
+		objects.add(new ElectricBarrier(1650, 610, 200, 2*height, 0, Color.BLUE));
 		
 		
 		for(int i=0;i<8;i++)
@@ -89,9 +89,9 @@ public class Level2Serializer {
 			}
 		}
 		
-		for(int i=0;i<10;i++)
+		for(int i=0;i<7;i++)
 		{
-			for(int j=0;j<6;j++)
+			for(int j=0;j<5;j++)
 			{
 				objects.add(new Coin(2450+(30*i), 450+(30*j)));
 			}
@@ -109,10 +109,10 @@ public class Level2Serializer {
 		objects.add(new Barrier(1700, 250, 400, 2*height, 0,Color.black)); //long top
 		objects.add(new Barrier(1850, 250+2*height, 200, 2*height, 0,Color.black)); //long top
 		
-		objects.add(new Barrier(1900, 550, 100, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(1950, 550+2*height, 200, 2*height, 0,Color.black)); //long top
-		
-		
+//	objects.add(new Barrier(1900, 610-2*height, 100, 2*height, 0,Color.black)); //long top
+//	objects.add(new Barrier(1950, 610, 200, 2*height, 0,Color.black)); //long top
+//		
+//		
 		
 		
 		objects.add(new Barrier(1900, 250, 200, 2*height, 0,Color.black)); //long top
@@ -125,8 +125,8 @@ public class Level2Serializer {
 		objects.add(new ElectricBarrier(1900, 0, 200, 2*height, 0, Color.magenta));
 		objects.add(new ElectricBarrier(2000, 2*height, 150, 2*height, 0, Color.magenta));
 		
-		objects.add(new ElectricBarrier(2100, 450, 200, 2*height, 0, Color.ORANGE));
-		objects.add(new ElectricBarrier(2150, 450+2*height, 200, 2*height, 0, Color.ORANGE));
+		objects.add(new ElectricBarrier(2100, 610-2*height, 200, 2*height, 0, Color.ORANGE));
+		objects.add(new ElectricBarrier(2150, 610, 200, 2*height, 0, Color.ORANGE));
 		
 		
 		//further off screen
@@ -134,20 +134,20 @@ public class Level2Serializer {
 		objects.add(new Barrier(2200, 200, 250, 2*height, 0,Color.black)); //long top
 		objects.add(new Barrier(2300, 200+2*height, 300, 2*height, 0,Color.black)); //long top
 		
-		objects.add(new Barrier(2200, 580, 200, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(2350, 580+2*height, 350, 2*height, 0,Color.black)); //long top
-		
+//		objects.add(new Barrier(2200, 580, 200, 2*height, 0,Color.black)); //long top
+//		objects.add(new Barrier(2350, 580+2*height, 350, 2*height, 0,Color.black)); //long top
+//		
 		
 		objects.add(new Barrier(2450, 320, 150, 2*height, 0,Color.black)); //long top
 	
-		objects.add(new ElectricBarrier(2800, 150, 200, 2*height, 0, Color.magenta));
-		objects.add(new ElectricBarrier(2900, 150+2*height, 100, 2*height, 0, Color.magenta));
+		objects.add(new ElectricBarrier(3000, 200, 200, 2*height, 0, Color.magenta));
+		objects.add(new ElectricBarrier(3100, 200+2*height, 100, 2*height, 0, Color.magenta));
 
 		objects.add(new Barrier(2600, 0, 250, 2*height, 0, Color.black));
 		objects.add(new Barrier(2800, 250+2*height, 150, 2*height, 0, Color.black));
 		
-		objects.add(new ElectricBarrier(3000, 450, 300, 2*height, 0, Color.BLUE));
-		objects.add(new ElectricBarrier(3100, 450+2*height, 250, 2*height, 0, Color.BLUE));
+		objects.add(new ElectricBarrier(2700, 610-2*height, 300, 2*height, 0, Color.BLUE));
+		objects.add(new ElectricBarrier(2800, 610, 250, 2*height, 0, Color.BLUE));
 		
 		
 		for(int i=0;i<6;i++)
@@ -158,15 +158,15 @@ public class Level2Serializer {
 			}
 		}
 		
-		for(int i=0;i<6;i++)
+		for(int i=0;i<5;i++)
 		{
-			for(int j=0;j<5;j++)
+			for(int j=0;j<4;j++)
 			{
-				objects.add(new Coin(2800+(30*i), 450+(30*j)));
+				objects.add(new Coin(1600+(40*i), 370+(40*j)));
 			}
 		}
 	
-		
+//		
 	//	objects.add(new Missile(400, 75, 50, 40));
 		
 		

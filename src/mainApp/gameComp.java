@@ -22,7 +22,7 @@ public class gameComp extends JComponent {
 	private int xForBarrier = 400;
 	Random random = new Random();
 	protected int level = 1;
-	final int MAX_LEVEL = 4;
+	final int MAX_LEVEL = 5;
 	private int counterCoin = 0;
 	protected int livesLeft = 3;
 

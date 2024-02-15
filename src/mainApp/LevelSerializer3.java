@@ -32,7 +32,7 @@ public class LevelSerializer3 {
 		objects.add(new Barrier(200, 500, 250, 2*height, 0,Color.black)); //long top
 		objects.add(new Barrier(250, 500-2*height, 100, 2*height, 0,Color.black)); //middle big
 		
-		objects.add(new Barrier(500, 700-2*height, 300, 2*height, 25,Color.black)); //bottom
+		objects.add(new Barrier(500, 610, 300, 2*height, 25,Color.black)); //bottom
 		
 		
 		//second top part
@@ -43,12 +43,12 @@ public class LevelSerializer3 {
 		
 		objects.add(new Barrier(720, 300, 400, 2*height, 0,Color.black)); //long top
 		objects.add(new Barrier(770, 300+2*height, 100, 2*height, 0,Color.black)); //middle big
-		objects.add(new Barrier(850, 600-height, 300, 2*height, 0,Color.black)); //too bottom?
+		objects.add(new Barrier(850, 610, 300, 2*height, 0,Color.black)); //too bottom?
 		
 //		
 //
 		objects.add(new ElectricBarrier(100, 2*height, 150, 2*height, 0, Color.cyan));
-		objects.add(new ElectricBarrier(550,  6*height+100, 100, 100, -25, Color.cyan));
+		objects.add(new ElectricBarrier(550,  6*height+50, 50, 50, -25, Color.cyan));
 		
 		objects.add(new ElectricBarrier(1070, 150, 200, 2*height, 0, Color.green));
 		objects.add(new ElectricBarrier(1210, 150+2*height, 60, 2*height, 0, Color.green));
@@ -93,9 +93,9 @@ public class LevelSerializer3 {
 		objects.add(new Barrier(1350, 10, 500, 2*height, -25,Color.black)); //long top
 		
 		
-		objects.add(new Barrier(1310, 600-height, 400, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(1410, 600-3*height, 200, 2*height, 0,Color.black)); //long top
-		objects.add(new Barrier(1480, 600-5*height, 100, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(1310, 610, 400, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(1410, 610-2*height, 200, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(1480, 610-4*height, 100, 2*height, 0,Color.black)); //long top
 		
 		
 		objects.add(new ElectricBarrier(1300, 420, 150, 2*height, 0, Color.pink));
@@ -110,7 +110,7 @@ public class LevelSerializer3 {
 		
 		
 		objects.add(new Barrier(1950, 0, 50, 250, 0,Color.black)); //long top
-		objects.add(new Barrier(1980, 600-height, 400, 2*height, 0,Color.black)); //long top
+		objects.add(new Barrier(1980, 610, 400, 2*height, 0,Color.black)); //long top
 		
 		objects.add(new Barrier(2100, 100, 300, 2*height, 10,Color.black)); //long top
 //		
