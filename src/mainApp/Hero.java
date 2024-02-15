@@ -39,15 +39,18 @@ public class Hero extends GameObject implements Serializable{
 		if(y < 0)
 		{
 			y=0;
-			System.out.println("WEEE is off screen");
+			//System.out.println("WEEE is off screen");
 		}
 		}
 		else 
 		{
 			y+=20;
 			if(y>700-120)
+
+			y+=10;
+			if(y>620)
 			{
-				y=700-120;
+				y=620;
 			}
 		}
 		this.up=false;
@@ -67,6 +70,10 @@ public class Hero extends GameObject implements Serializable{
 	protected void isUp(boolean up)
 	{
 		this.up=up;
+	}
+	protected void setColor(Color color)
+	{
+		this.heroColor=color;
 	}
 
 }

@@ -7,8 +7,8 @@ import java.awt.geom.Arc2D;
 
 public class Missile extends GameObject {
 	
-	public Missile(int y, int width, int height, int constantSpeed) {
-		super(1300, y, width, height, Color.ORANGE, constantSpeed);
+	public Missile(int x, int y, int width, int height, int constantSpeed) {
+		super(x, y, width, height, Color.ORANGE, constantSpeed);
 	}
 	
 	public Missile(int width, int height, Color color, int constantSpeed) {

@@ -1,6 +1,7 @@
 package mainApp;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.FileInputStream;
@@ -20,8 +21,8 @@ public class gameComp extends JComponent {
 	ArrayList<GameObject> objects = new ArrayList<GameObject>();
 	private int xForBarrier = 400;
 	Random random = new Random();
-	int level = 1;
-	final int MAX_LEVEL = 3;
+	protected int level = 1;
+	final int MAX_LEVEL = 5;
 	private int counterCoin = 0;
 	protected int livesLeft = 3;
 
@@ -64,12 +65,24 @@ public class gameComp extends JComponent {
 	}
 
 	public void update() {
+		
 		for (GameObject b : this.objects) {
+			b.update();
+		}
+		
+		for (GameObject b : this.objects) {
+
+			if(b.overlapsWith(hero))
+			{
+			b.overlapping();
+			}
+			
+			
 			if(b.isHomingMissile())
 			{
 				if(((HomingMissile) b).decreaseTimer() == 0)
 				{
-					objects.add(new Missile(((HomingMissile) b).yCord(), 75, 50, 40));
+					objects.add(new Missile(((HomingMissile) b).yCord(),1300, 75, 50, 40));
 					objects.remove(objects.indexOf(b));
 				}
 				
@@ -77,20 +90,20 @@ public class gameComp extends JComponent {
 					continue;
 				}
 			}
-			
-			if(hero.x < 100)
-			{
-				hero.x += 1;
-			}
-			else if(hero.x > 100)
-			{
-				hero.x = 100;
-			}
-			
-			b.update();
-		}
-
-		for (GameObject b : this.objects) {
+//			
+//			if(hero.x < 100)
+//			{
+//				hero.x += 1;
+//			}
+//			else if(hero.x > 100)
+//			{
+//				hero.x = 100;
+//			}
+//			
+//			b.update();
+//		}
+//
+		
 			if (b.overlapsWith(hero)) {				
 				
 				b.overlapping();
@@ -108,6 +121,7 @@ public class gameComp extends JComponent {
 					}
 					this.updateLabel(counterCoin,livesLeft);
 				}
+				
 			}
 			
 			if(b.isBarrier())
@@ -128,41 +142,50 @@ public class gameComp extends JComponent {
 					System.out.println("Bottom Left/Right");
 				}
 			}
-
+			
 		}
-
+		
 		if (objects.size() == 0) {
 			level++;
 			if (level <= MAX_LEVEL) {
 				this.loadFile(level);
 			}
+			else {
+				System.out.println("Game won!!!");
+				GameWon won = new GameWon(counterCoin + MAX_LEVEL*100);
+				won.main();
+			}
 		}
+		
 		hero.update();
+			
 	}
+	
+
 
 	public void removeThings() {
 		
 		ArrayList<GameObject> removeMeObjects = new ArrayList<GameObject>();
 		
-		for (int i = 0; i < objects.size(); i++) {
-			if (objects.get(i).overlapsWith(hero) && objects.get(i).isCoin()) {
-				objects.remove(i);
-				removeMeObjects.add(objects.get(i));
-				this.counterCoin++;
-				this.updateLabel(counterCoin,livesLeft);
-				objects.remove(i);
-				break;
-			}
-			if (objects.get(i).isOffScreen()) {
-				objects.remove(i);
-				break;
-			}
-		}
-		
-		for(GameObject objs:removeMeObjects)
-		{
-			objects.remove(objs);
-		}
+		// Mark them in this loop which is over objects.
+				for (int i = 0; i < objects.size(); i++) {
+					if (objects.get(i).overlapsWith(hero) && objects.get(i).isCoin()) {
+//						objects.remove(i);
+						removeMeObjects.add(objects.get(i));
+						this.counterCoin++;
+						this.updateLabel(counterCoin,livesLeft);
+					}
+					if (objects.get(i).isOffScreen()) {
+						objects.remove(i);
+						
+					}
+				}
+				
+				// Remove them in this loop which is over removeMeObjects
+				for(GameObject objs:removeMeObjects)
+				{
+					objects.remove(objs);
+				}
 	}
 
 	public void moveHeroUp() {
@@ -175,7 +198,14 @@ public class gameComp extends JComponent {
 		this.label = label;
 	}
 	
+	public void hColor(Color heroColor)
+	{
+		hero.setColor(heroColor);
+	}
+	
+	//thing
 	public void updateLabel(int coins, int lives) {
-		this.label.setText("<html>Coins: " + coins + "<br />Lives: " + lives + "</HTML>");
+		this.label.setText("<html><font color='white'>Coins: " + coins + "<br />Lives: " + lives + "</font></HTML>");
+		 this.label.setFont(new Font("Verdana", Font.BOLD, 14));
 	}//updateLabel
 }
