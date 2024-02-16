@@ -14,7 +14,7 @@ import java.util.Random;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
-public class gameComp extends JComponent {
+public class GameComp extends JComponent {
 	Hero hero = new Hero(100, 500, 50, 50, 20);
 	JLabel label;
 
@@ -26,7 +26,7 @@ public class gameComp extends JComponent {
 	private int counterCoin = 0;
 	protected int livesLeft = 3;
 
-	public gameComp() {
+	public GameComp() {
 		this.loadFile(1);
 	}
 
