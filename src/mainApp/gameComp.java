@@ -122,47 +122,47 @@ public class gameComp extends JComponent {
 				{
 					hero.y = b.y - 70;
 					
-					if(((Barrier) b).isElectricBarrier())
-					{
-						subtractLife();
-					}
+//					if(((Barrier) b).isElectricBarrier())
+//					{
+//						subtractLife();
+//					}
 				}
 				else if(((Barrier) b).overlapsWithBottom(hero))
 				{
 					hero.y = b.y + b.height - 10;
 					
-					if(((Barrier) b).isElectricBarrier())
-					{
-						subtractLife();
-					}
+//					if(((Barrier) b).isElectricBarrier())
+//					{
+//						subtractLife();
+//					}
 				}
 				else if(((Barrier) b).overlapsWithRight(hero))
 				{
 					hero.x = b.x - 51;
 					
-					if(((Barrier) b).isElectricBarrier())
-					{
-						subtractLife();
-					}
+//					if(((Barrier) b).isElectricBarrier())
+//					{
+//						subtractLife();
+//					}
 				}
 				
 				if(((Barrier) b).overlapsWithTopLeft(hero) || ((Barrier) b).overlapsWithTopRight(hero))
 				{
 					hero.y = ((Barrier) b).getSecondYCoord();
 					
-					if(((Barrier) b).isElectricBarrier())
-					{
-						subtractLife();
-					}
+//					if(((Barrier) b).isElectricBarrier())
+//					{
+//						subtractLife();
+//					}
 				}
 				else if(((Barrier) b).overlapsWithBottomLeft(hero) || ((Barrier) b).overlapsWithBottomRight(hero))
 				{
 					hero.y = ((Barrier) b).getSecondYCoord() - hero.height - 20;
 					
-					if(((Barrier) b).isElectricBarrier())
-					{
-						subtractLife();
-					}
+//					if(((Barrier) b).isElectricBarrier())
+//					{
+//						subtractLife();
+//					}
 				}
 			}
 			
