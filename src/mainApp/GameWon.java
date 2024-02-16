@@ -37,24 +37,29 @@ public class GameWon {
 		
 		GameWonHighScores forButton = new GameWonHighScores(playerScore);
 		forButton.setBackground(Color.white);
-		forButton.setPreferredSize(new Dimension(1200,700));
+		forButton.setPreferredSize(new Dimension(1200,400));
 		frame.add(forButton);
 
 		JButton restartGame = new JButton("Restart Game");
 		restartGame.setBackground(Color.white);
-		restartGame.setPreferredSize(new Dimension(150, 50));
-		forButton.add(restartGame);
+	//	restartGame.setPreferredSize(new Dimension(150, 50));
 		
-		JButton savePlayerScore = new JButton("Save Score");
-		savePlayerScore.setBackground(Color.white);
-		savePlayerScore.setPreferredSize(new Dimension(150, 50));
-		forButton.add(savePlayerScore);
+		
+//		JPanel forRestart = new JPanel();
+//		forRestart.add(restartGame,BorderLayout.CENTER);
+//		
 		
 		JTextField playerName = new JTextField("Type your name here", 25);
 		forButton.add(playerName);
+		
+		JButton savePlayerScore = new JButton("Save Score");
+		savePlayerScore.setBackground(Color.white);
+	//	savePlayerScore.setPreferredSize(new Dimension(150, 50));
+		forButton.add(savePlayerScore);
+		
+		forButton.add(restartGame,BorderLayout.SOUTH);
 
-		ImageIcon backgroundImage = new ImageIcon(
-				"C:\\Users\\wilhelk\\git\\csse220-winter-2023-2024-final-project-w24_a507\\Images\\pexels-sebastian-sørensen-1276518.jpg");
+		ImageIcon backgroundImage = new ImageIcon("Images\\pexels-sebastian-sørensen-1276518.jpg");
 
 		JLabel forImage = new JLabel();
 		forImage.setIcon(backgroundImage);
@@ -63,7 +68,9 @@ public class GameWon {
 		forImage.setLayout(new BorderLayout());
 
 		forButton.setOpaque(false);
-		forImage.add(forButton);
+		//forRestart.setOpaque(false);
+		forImage.add(forButton,BorderLayout.NORTH);
+	//	forImage.add(forRestart,BorderLayout.SOUTH);
 
 		frame.add(forImage);
 

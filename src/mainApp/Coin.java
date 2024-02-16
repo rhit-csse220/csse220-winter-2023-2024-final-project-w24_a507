@@ -37,7 +37,7 @@ public class Coin extends GameObject implements Serializable{ //coin
 
 	@Override
 	protected void overlapping() {
-		System.out.println("Coin was collected");
+		//System.out.println("Coin was collected");
 		
 	}
 

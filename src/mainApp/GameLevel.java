@@ -75,7 +75,7 @@ public class GameLevel {
 		
 		
 		
-		ImageIcon gameImage=new ImageIcon("C:\\Users\\wilhelk\\git\\csse220-winter-2023-2024-final-project-w24_a507\\Images\\Trees.png");
+		ImageIcon gameImage=new ImageIcon("Images\\Trees.png");
         
         JLabel forImage=new JLabel();
         forImage.setIcon(gameImage);
@@ -116,7 +116,7 @@ public class GameLevel {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				// TODO Auto-generated method stub
-				System.out.println(e.getKeyChar());
+				//System.out.println(e.getKeyChar());
 				int keyPressed=e.getKeyChar();
 				//System.out.println(keyPressed);
 				if(keyPressed==65535)
