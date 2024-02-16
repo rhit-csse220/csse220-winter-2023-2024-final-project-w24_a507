@@ -15,6 +15,7 @@ public class Barrier extends GameObject implements Serializable{
 	private double firstYCoord;
 	private double secondXCoord;
 	private double secondYCoord;
+	public static boolean isMoving = true;
 	
 	public Barrier(int x, int y, int width, int height, int rotation)
 	{
@@ -44,12 +45,15 @@ public class Barrier extends GameObject implements Serializable{
 	
 	public void update()
 	{
-		super.x -= super.constantSpeed;
-		
-		if(super.x + super.width * Math.cos(Math.toRadians(rotation)) < 0)
+		if(isMoving)
 		{
-			offScreen=true;
-		//	System.out.println("Object is off screen");
+			super.x -= super.constantSpeed;
+			
+			if(super.x + super.width * Math.cos(Math.toRadians(rotation)) < 0)
+			{
+				offScreen=true;
+			//	System.out.println("Object is off screen");
+			}
 		}
 	}
 	
@@ -117,8 +121,8 @@ public class Barrier extends GameObject implements Serializable{
 	
 	public boolean overlapsWithBottomRight(Hero other)
 	{
-		int heroXRight = other.x + width;
-		int heroYBottom = other.y + height;
+		int heroXRight = other.x + other.width;
+		int heroYBottom = other.y + other.height;
 		
 		secondXCoord = super.x + Math.cos(Math.toRadians(rotation)) * super.width;
 		secondYCoord = super.y + Math.tan(Math.toRadians(rotation)) * (heroXRight - super.x);
@@ -196,5 +200,4 @@ public class Barrier extends GameObject implements Serializable{
 	{
 		return (int) secondYCoord;
 	}
-	
 }

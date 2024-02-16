@@ -68,18 +68,9 @@ public class GameComp extends JComponent {
 		
 		for (GameObject b : this.objects) {
 			b.update();
-			
-			if(hero.x < 100)
-			{
-				hero.x += 1;
-			}
-			
-			if(hero.getIsOffScreen())
-			{
-				subtractLife();
-			}
 		}
 		
+		boolean isMoving = true;
 		for (GameObject b : this.objects) {
 
 			if(b.overlapsWith(hero))
@@ -122,51 +113,49 @@ public class GameComp extends JComponent {
 				{
 					hero.y = b.y - 70;
 					
-//					if(((Barrier) b).isElectricBarrier())
-//					{
-//						subtractLife();
-//					}
+					if(((Barrier) b).isElectricBarrier())
+					{
+						subtractLife();
+					}
 				}
 				else if(((Barrier) b).overlapsWithBottom(hero))
 				{
 					hero.y = b.y + b.height - 10;
 					
-//					if(((Barrier) b).isElectricBarrier())
-//					{
-//						subtractLife();
-//					}
+					if(((Barrier) b).isElectricBarrier())
+					{
+						subtractLife();
+					}
 				}
 				else if(((Barrier) b).overlapsWithRight(hero))
 				{
-					hero.x = b.x - 51;
-					
-//					if(((Barrier) b).isElectricBarrier())
-//					{
-//						subtractLife();
-//					}
+					isMoving = false;
 				}
 				
 				if(((Barrier) b).overlapsWithTopLeft(hero) || ((Barrier) b).overlapsWithTopRight(hero))
 				{
 					hero.y = ((Barrier) b).getSecondYCoord();
 					
-//					if(((Barrier) b).isElectricBarrier())
-//					{
-//						subtractLife();
-//					}
+					if(((Barrier) b).isElectricBarrier())
+					{
+						subtractLife();
+					}
 				}
 				else if(((Barrier) b).overlapsWithBottomLeft(hero) || ((Barrier) b).overlapsWithBottomRight(hero))
 				{
 					hero.y = ((Barrier) b).getSecondYCoord() - hero.height - 20;
 					
-//					if(((Barrier) b).isElectricBarrier())
-//					{
-//						subtractLife();
-//					}
+					if(((Barrier) b).isElectricBarrier())
+					{
+						subtractLife();
+					}
 				}
 			}
 			
 		}
+		
+		Barrier.isMoving = isMoving;
+		Coin.isMoving = isMoving;
 		
 		if (objects.size() == 0) {
 			level++;
