@@ -19,7 +19,9 @@ import java.awt.geom.Arc2D;
  */
 
 public class Missile extends GameObject {
-
+	
+	public static boolean isMoving;
+	
 	public Missile(int x, int y, int width, int height, int constantSpeed) {
 		super(x, y, width, height, Color.ORANGE, constantSpeed);
 	}
@@ -59,6 +61,19 @@ public class Missile extends GameObject {
 	/**
 	 * ensures: Returns True because it is Missile
 	 */
+	
+	@Override
+	public void update()
+	{
+		if(isMoving == false && x > 1125)
+		{
+			return;
+		}
+		
+		super.update();
+	}
+	
+
 	@Override
 	protected boolean isMissile() {
 		return true;

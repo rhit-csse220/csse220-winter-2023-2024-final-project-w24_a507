@@ -85,7 +85,7 @@ public class GameComp extends JComponent {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-
+		
 		for (GameObject i : objects) {
 			i.drawOn(g2);
 		}
@@ -136,20 +136,24 @@ public class GameComp extends JComponent {
 
 			if (b.isBarrier()) {
 
-				if (((Barrier) b).overlapsWithTop(hero)) {
-					hero.y = b.y - 70;
-
-					if (((Barrier) b).isElectricBarrier()) {
-						subtractLife();
-					}
-				} else if (((Barrier) b).overlapsWithBottom(hero)) {
-					hero.y = b.y + b.height - 10;
-
-					if (((Barrier) b).isElectricBarrier()) {
-						subtractLife();
-					}
-				} else if (((Barrier) b).overlapsWithRight(hero)) {
+				if (((Barrier) b).overlapsWithRight(hero)) {
 					isMoving = false;
+				}
+				
+				if (((Barrier) b).overlapsWithTop(hero)) {
+					hero.y = ((Barrier) b).getSecondYCoord() - 70;
+
+					if (((Barrier) b).isElectricBarrier()) {
+						subtractLife();
+					}
+				}
+				
+				if (((Barrier) b).overlapsWithBottom(hero)) {
+					hero.y = ((Barrier) b).getSecondYCoord();
+
+					if (((Barrier) b).isElectricBarrier()) {
+						subtractLife();
+					}
 				}
 
 				if (((Barrier) b).overlapsWithTopLeft(hero) || ((Barrier) b).overlapsWithTopRight(hero)) {
@@ -171,7 +175,8 @@ public class GameComp extends JComponent {
 
 		Barrier.isMoving = isMoving;
 		Coin.isMoving = isMoving;
-
+		Missile.isMoving = isMoving;
+		
 		if (objects.size() == 0) {
 			level++;
 			if (level <= MAX_LEVEL) {

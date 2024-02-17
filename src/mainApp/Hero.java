@@ -44,6 +44,7 @@ public class Hero extends GameObject implements Serializable {
 	@Override
 	public void drawOn(Graphics2D g) {
 
+
 		Rectangle heroBox = new Rectangle(x, y, 50, 50);
 		g.setColor(heroColor);
 		g.fill(heroBox);

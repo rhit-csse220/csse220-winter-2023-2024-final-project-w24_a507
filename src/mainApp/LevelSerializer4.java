@@ -171,7 +171,9 @@ public class LevelSerializer4 {
 			}
 		}
 		
-		
+		objects.add(new Missile(3500, 460, MISSILE_WIDTH, MISSILE_HEIGHT, 25));
+		objects.add(new Missile(5700, 550, MISSILE_WIDTH, MISSILE_HEIGHT, 25));
+		objects.add(new Missile(5700, 150, MISSILE_WIDTH, MISSILE_HEIGHT, 25));
 //		
 		
 		try {

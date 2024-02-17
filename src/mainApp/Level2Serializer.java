@@ -38,6 +38,11 @@ public class Level2Serializer {
 		objects.add(new ElectricBarrier(1000, 400, 300, 2*height, 0, Color.green));
 		objects.add(new ElectricBarrier(1100, 400+2*height, 200, 2*height, 0, Color.green));
 		
+		objects.add(new Missile(3000, 475, MISSILE_WIDTH, MISSILE_HEIGHT, 20));
+		objects.add(new Missile(4500, 75, MISSILE_WIDTH, MISSILE_HEIGHT, 20));
+		
+		objects.add(new HomingMissile(MISSILE_WIDTH, MISSILE_HEIGHT, 25, 40));
+		
 		for(int i=0;i<8;i++)
 		{
 			for(int j=0;j<5;j++)

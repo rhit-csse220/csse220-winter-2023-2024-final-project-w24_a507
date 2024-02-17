@@ -26,7 +26,7 @@ public class LevelSerializer3 {
 		
 		objects.add(new Barrier(500, 4*height+30, 200, 2*height, 0,Color.black)); //long top
 		
-		objects.add(new Barrier(250, 300, 150, 2*height, 25,Color.black)); //diagnoal down
+		objects.add(new Barrier(250, 300, 150, 2*height, 25,Color.black)); //diagonal down
 		
 		
 		objects.add(new Barrier(200, 500, 250, 2*height, 0,Color.black)); //long top
@@ -53,8 +53,9 @@ public class LevelSerializer3 {
 		objects.add(new ElectricBarrier(1070, 150, 200, 2*height, 0, Color.green));
 		objects.add(new ElectricBarrier(1210, 150+2*height, 60, 2*height, 0, Color.green));
 		
-		objects.add(new Missile(1600, 500, MISSILE_WIDTH, MISSILE_HEIGHT, 25));
-		objects.add(new Missile(2400, 300, MISSILE_WIDTH, MISSILE_HEIGHT, 25));
+		objects.add(new Missile(2000, 500, MISSILE_WIDTH, MISSILE_HEIGHT, 25));
+		objects.add(new Missile(3500, 300, MISSILE_WIDTH, MISSILE_HEIGHT, 25));
+		objects.add(new Missile(5000, 450, MISSILE_WIDTH, MISSILE_HEIGHT, 25));
 //		
 		for(int i=0;i<7;i++) //across
 		{

@@ -22,8 +22,8 @@ public class Barrier extends GameObject implements Serializable {
 
 	protected int rotation;
 	Color colorOfBarrier;
-	private double firstXCoord;
-	private double firstYCoord;
+	private double firstXCoord = super.x + Math.sin(Math.toRadians(rotation)) * super.height;
+	private double firstYCoord = super.y + Math.cos(Math.toRadians(rotation)) * super.height;
 	private double secondXCoord;
 	private double secondYCoord;
 	public static boolean isMoving = true;
@@ -106,8 +106,6 @@ public class Barrier extends GameObject implements Serializable {
 	 * @return rather or not the barrier is in contact with hero
 	 */
 	public boolean overlapsWithTopLeft(Hero other) {
-		firstXCoord = super.x + Math.sin(Math.toRadians(rotation)) * super.height;
-		firstYCoord = super.y + Math.cos(Math.toRadians(rotation)) * super.height;
 
 		secondXCoord = firstXCoord + Math.cos(Math.toRadians(rotation)) * super.width;
 		secondYCoord = firstYCoord + Math.tan(Math.toRadians(rotation)) * (other.x - firstXCoord);
@@ -129,13 +127,10 @@ public class Barrier extends GameObject implements Serializable {
 	public boolean overlapsWithTopRight(Hero other) {
 		int heroXRight = other.x + other.width;
 
-		firstXCoord = super.x - Math.sin(Math.toRadians(rotation)) * super.height;
-		firstYCoord = super.y + Math.cos(Math.toRadians(rotation)) * super.height;
-
 		secondXCoord = firstXCoord + Math.cos(Math.toRadians(rotation)) * super.width;
 		secondYCoord = firstYCoord + Math.tan(Math.toRadians(rotation)) * (heroXRight - firstXCoord);
 
-		if (heroXRight >= firstXCoord && heroXRight <= secondXCoord && other.y >= firstYCoord
+		if (heroXRight >= firstXCoord && heroXRight <= secondXCoord && other.y >= secondYCoord - 5
 				&& other.y <= secondYCoord) {
 			return true;
 		} else {
@@ -193,9 +188,10 @@ public class Barrier extends GameObject implements Serializable {
 		int heroXRight = other.x + other.width;
 		int heroYBottom = other.y + other.height;
 
-		if (heroXRight >= super.x && other.x <= super.x && other.y <= super.y && heroYBottom >= super.y
-				|| heroXRight >= firstXCoord && other.x <= super.x && other.y <= firstYCoord
-						&& heroYBottom >= firstYCoord) {
+		if (heroXRight >= super.x && heroXRight <= super.x + 5 && other.y <= firstYCoord && other.y >= super.y 
+				|| heroXRight >= super.x && heroXRight <= super.x + 5 && heroYBottom <= firstYCoord && heroYBottom >= super.y
+				|| heroXRight >= firstXCoord && heroXRight <= firstXCoord + 5 && other.y <= firstYCoord && other.y >= super.y
+				|| heroXRight >= firstXCoord && heroXRight <= firstXCoord + 5 && heroYBottom <= firstYCoord && heroYBottom >= super.y) {
 			return true;
 		} else {
 			return false;
@@ -211,9 +207,13 @@ public class Barrier extends GameObject implements Serializable {
 	public boolean overlapsWithTop(Hero other) {
 		int heroXRight = other.x + other.width;
 		int heroYBottom = other.y + other.height;
+		
+		secondXCoord = super.x + Math.cos(Math.toRadians(rotation)) * super.width;
+		secondYCoord = super.y + Math.sin(Math.toRadians(rotation)) * super.width;
 
-		if (heroXRight >= super.x && other.x <= super.x + super.width && heroYBottom >= super.y
-				&& heroYBottom <= super.y + super.height && rotation == 0) {
+		if (heroXRight >= super.x && other.x <= secondXCoord && heroYBottom >= super.y && heroYBottom <= super.y + 10 && rotation == 0
+				|| heroXRight > secondXCoord && other.x <= secondXCoord && heroYBottom >= secondYCoord && heroYBottom <= secondYCoord + 10
+				|| heroXRight > super.x && other.x <= super.x && heroYBottom >= super.y && heroYBottom <= super.y + 10) {
 			return true;
 		} else {
 			return false;
@@ -228,9 +228,13 @@ public class Barrier extends GameObject implements Serializable {
 	 */
 	public boolean overlapsWithBottom(Hero other) {
 		int heroXRight = other.x + other.width;
+		
+		secondXCoord = firstXCoord + Math.cos(Math.toRadians(rotation)) * super.width;
+		secondYCoord = firstYCoord + Math.sin(Math.toRadians(rotation)) * super.width;
 
-		if (heroXRight >= super.x && other.x <= super.x + super.width && other.y <= super.y + super.height
-				&& other.y >= super.y && rotation == 0) {
+		if (heroXRight >= firstXCoord && other.x <= secondXCoord && other.y <= firstYCoord && other.y >= firstYCoord - 10 && rotation == 0
+				|| heroXRight >= super.x && other.x <= super.x && other.y <= firstYCoord && other.y >= firstYCoord - 10
+				|| heroXRight >= secondXCoord && other.x <= secondXCoord && other.y <= secondYCoord && other.y >= secondYCoord - 10) {
 			return true;
 		} else {
 			return false;
