@@ -52,7 +52,7 @@ public class GameLevel {
 	//	frame.add(label, BorderLayout.NORTH);
 		
 		//thing
-		gameComp game = new gameComp();
+		GameComp game = new GameComp();
 		
 		game.setLabel(this.label);
 		game.updateLabel(0,3);

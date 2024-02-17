@@ -10,6 +10,7 @@ public class Coin extends GameObject implements Serializable{ //coin
 
 	private static int width=20;
 	private static int height=20;
+	public static boolean isMoving = true;
 	
 	public Coin(int x,int y)
 	{
@@ -44,5 +45,13 @@ public class Coin extends GameObject implements Serializable{ //coin
 	@Override
 	protected boolean isCoin() {
 		return true;
+	}
+	
+	public void update()
+	{
+		if(isMoving)
+		{
+			super.update();
+		}
 	}
 }

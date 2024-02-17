@@ -27,7 +27,7 @@ public class LevelSerializer4 {
 		
 		objects.add(new Barrier(400, 300, 200, 2*height, 25,Color.black)); //diagnoal down
 		
-		
+		objects.add(new HomingMissile(MISSILE_WIDTH, MISSILE_HEIGHT, 40, 30));
 		
 		//second top part
 		objects.add(new Barrier(200, 400, 60, 300, 0,Color.black)); //long top
