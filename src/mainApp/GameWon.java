@@ -15,10 +15,29 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Class: GameWon
+ * 
+ * @author Thornton <br>
+ *         Purpose: Used to create the end screen for when the player beats the
+ *         game and to save a high score <br>
+ *         Restrictions: Is not when the player looses <br>
+ *         For example:
+ * 
+ *         <pre>
+ *         GameWon gameWon = new GameWon(100000);
+ *         gameWon.main();
+ *         </pre>
+ */
+
 public class GameWon {
-	
+
 	int playerScore;
-	
+
+	/**
+	 * 
+	 * @param playerScore
+	 */
 	public GameWon(int playerScore) {
 		this.playerScore = playerScore;
 	}
@@ -34,30 +53,23 @@ public class GameWon {
 		frame.setLocation(0, 0);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);
-		
+
 		GameWonHighScores forButton = new GameWonHighScores(playerScore);
 		forButton.setBackground(Color.white);
-		forButton.setPreferredSize(new Dimension(1200,400));
+		forButton.setPreferredSize(new Dimension(1200, 400));
 		frame.add(forButton);
 
 		JButton restartGame = new JButton("Restart Game");
 		restartGame.setBackground(Color.white);
-	//	restartGame.setPreferredSize(new Dimension(150, 50));
-		
-		
-//		JPanel forRestart = new JPanel();
-//		forRestart.add(restartGame,BorderLayout.CENTER);
-//		
-		
+
 		JTextField playerName = new JTextField("Type your name here", 25);
 		forButton.add(playerName);
-		
+
 		JButton savePlayerScore = new JButton("Save Score");
 		savePlayerScore.setBackground(Color.white);
-	//	savePlayerScore.setPreferredSize(new Dimension(150, 50));
 		forButton.add(savePlayerScore);
-		
-		forButton.add(restartGame,BorderLayout.SOUTH);
+
+		forButton.add(restartGame, BorderLayout.SOUTH);
 
 		ImageIcon backgroundImage = new ImageIcon("Images\\pexels-sebastian-sørensen-1276518.jpg");
 
@@ -68,14 +80,13 @@ public class GameWon {
 		forImage.setLayout(new BorderLayout());
 
 		forButton.setOpaque(false);
-		//forRestart.setOpaque(false);
-		forImage.add(forButton,BorderLayout.NORTH);
-	//	forImage.add(forRestart,BorderLayout.SOUTH);
+		forImage.add(forButton, BorderLayout.NORTH);
 
 		frame.add(forImage);
 
 		frame.setVisible(true);
 
+		// Creates a new game and closes GameWon when restart is pressed
 		class restartGame implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				// close this screen and go to game screen
@@ -91,17 +102,19 @@ public class GameWon {
 		}
 
 		restartGame.addActionListener(new restartGame());
-		
+
+		// Saves the player score and player name when save is clicked
 		class savePlayerScore implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ScoreSerializer file = new ScoreSerializer(forButton.getHighScores(), playerName.getText(), playerScore);
+				ScoreSerializer file = new ScoreSerializer(forButton.getHighScores(), playerName.getText(),
+						playerScore);
 				file.generateFile();
 			}
-			
+
 		}
-		
+
 		savePlayerScore.addActionListener(new savePlayerScore());
 
 		frame.setVisible(true);
