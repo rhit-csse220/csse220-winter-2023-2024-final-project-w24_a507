@@ -14,6 +14,18 @@ import java.util.Random;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
+/**
+ * Class: gameComp
+ * 
+ * @author 507 group <br>
+ *         Purpose: used to basically run the game and keep everything updated
+ *         <br>
+ *         For example:
+ * 
+ *         <pre>
+ *         gameComp game = new gameComp();
+ *         </pre>
+ */
 public class GameComp extends JComponent {
 	Hero hero = new Hero(100, 500, 50, 50, 20);
 	JLabel label;
@@ -26,10 +38,18 @@ public class GameComp extends JComponent {
 	private int counterCoin = 0;
 	protected int livesLeft = 3;
 
+	/**
+	 * ensures: starts the level at 1
+	 */
 	public GameComp() {
 		this.loadFile(1);
-	}
+	}// GameComp
 
+	/**
+	 * ensures: updates the level and sets up the next level
+	 * 
+	 * @param level used to know which level to pull up
+	 */
 	public void loadFile(int level) {
 		try {
 			FileInputStream fileIn = new FileInputStream("level" + level + ".ser");
@@ -45,13 +65,21 @@ public class GameComp extends JComponent {
 			System.err.println("Class not found");
 		}
 
-	}
+	}// loadFile
 
+	/**
+	 * ensures: initializes the account name to "unknown user" and balance to 0
+	 */
 	public boolean levelOver() {
 		System.out.println(objects.size());
 		return objects.size() == 0;
-	}
+	}// levelOver
 
+	/**
+	 * ensures: draws all the objects to the screen
+	 * 
+	 * @param the graphics2d variable
+	 */
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -62,174 +90,177 @@ public class GameComp extends JComponent {
 		}
 
 		hero.drawOn(g2);
-	}
+	}// paintComponent
 
+	/**
+	 * ensures: updates all objects
+	 */
 	public void update() {
-		
+
 		for (GameObject b : this.objects) {
 			b.update();
 		}
-		
+
 		boolean isMoving = true;
 		for (GameObject b : this.objects) {
 
-			if(b.overlapsWith(hero))
-			{
-			b.overlapping();
+			if (b.overlapsWith(hero)) {
+				b.overlapping();
 			}
-			
-			
-			if(b.isHomingMissile())
-			{
-				if(((HomingMissile) b).decreaseTimer() == 0)
-				{
-					objects.add(new Missile(((HomingMissile) b).yCord(),1300, 75, 50, 40));
+
+			if (b.isHomingMissile()) {
+				if (((HomingMissile) b).decreaseTimer() == 0) {
+					objects.add(new Missile(((HomingMissile) b).yCord(), 1300, 75, 50, 40));
 					objects.remove(objects.indexOf(b));
 				}
-				
+
 				if (((HomingMissile) b).updateWarning(hero) > 0) {
 					continue;
 				}
-				
+
 			}
-		
-			if (b.overlapsWith(hero)) {				
-				
+
+			if (b.overlapsWith(hero)) {
+
 				b.overlapping();
-				
+
 				if (b.isMissile()) {
 					this.loadFile(level);
 					System.out.println("Missle Hit *************************************\nRestart Level");
-					
+
 					subtractLife();
 				}
-				
+
 			}
-			
-			if(b.isBarrier())
-			{
-				
-				if(((Barrier) b).overlapsWithTop(hero))
-				{
+
+			if (b.isBarrier()) {
+
+				if (((Barrier) b).overlapsWithTop(hero)) {
 					hero.y = b.y - 70;
-					
-					if(((Barrier) b).isElectricBarrier())
-					{
+
+					if (((Barrier) b).isElectricBarrier()) {
 						subtractLife();
 					}
-				}
-				else if(((Barrier) b).overlapsWithBottom(hero))
-				{
+				} else if (((Barrier) b).overlapsWithBottom(hero)) {
 					hero.y = b.y + b.height - 10;
-					
-					if(((Barrier) b).isElectricBarrier())
-					{
+
+					if (((Barrier) b).isElectricBarrier()) {
 						subtractLife();
 					}
-				}
-				else if(((Barrier) b).overlapsWithRight(hero))
-				{
+				} else if (((Barrier) b).overlapsWithRight(hero)) {
 					isMoving = false;
 				}
-				
-				if(((Barrier) b).overlapsWithTopLeft(hero) || ((Barrier) b).overlapsWithTopRight(hero))
-				{
+
+				if (((Barrier) b).overlapsWithTopLeft(hero) || ((Barrier) b).overlapsWithTopRight(hero)) {
 					hero.y = ((Barrier) b).getSecondYCoord();
-					
-					if(((Barrier) b).isElectricBarrier())
-					{
+
+					if (((Barrier) b).isElectricBarrier()) {
 						subtractLife();
 					}
-				}
-				else if(((Barrier) b).overlapsWithBottomLeft(hero) || ((Barrier) b).overlapsWithBottomRight(hero))
-				{
+				} else if (((Barrier) b).overlapsWithBottomLeft(hero) || ((Barrier) b).overlapsWithBottomRight(hero)) {
 					hero.y = ((Barrier) b).getSecondYCoord() - hero.height - 20;
-					
-					if(((Barrier) b).isElectricBarrier())
-					{
+
+					if (((Barrier) b).isElectricBarrier()) {
 						subtractLife();
 					}
 				}
 			}
-			
+
 		}
-		
+
 		Barrier.isMoving = isMoving;
 		Coin.isMoving = isMoving;
-		
+
 		if (objects.size() == 0) {
 			level++;
 			if (level <= MAX_LEVEL) {
 				this.loadFile(level);
-			}
-			else {
+			} else {
 				System.out.println("Game won!!!");
-				GameWon won = new GameWon(counterCoin + MAX_LEVEL*100);
+				GameWon won = new GameWon(counterCoin + MAX_LEVEL * 100);
 				won.main();
 			}
 		}
-		
+
 		hero.update();
-			
-	}
-	
 
+	}// update
 
+	/**
+	 * ensures: objects that are marked as "to remove" are removed
+	 */
 	public void removeThings() {
-		
-		ArrayList<GameObject> removeMeObjects = new ArrayList<GameObject>();
-		
-		// Mark them in this loop which is over objects.
-				for (int i = 0; i < objects.size(); i++) {
-					if (objects.get(i).overlapsWith(hero) && objects.get(i).isCoin()) {
-//						objects.remove(i);
-						removeMeObjects.add(objects.get(i));
-						this.counterCoin++;
-						this.updateLabel(counterCoin,livesLeft);
-					}
-					if (objects.get(i).isOffScreen()) {
-						objects.remove(i);
-						
-					}
-				}
-				
-				// Remove them in this loop which is over removeMeObjects
-				for(GameObject objs:removeMeObjects)
-				{
-					objects.remove(objs);
-				}
-	}
 
+		ArrayList<GameObject> removeMeObjects = new ArrayList<GameObject>();
+
+		// Mark them in this loop which is over objects.
+		for (int i = 0; i < objects.size(); i++) {
+			if (objects.get(i).overlapsWith(hero) && objects.get(i).isCoin()) {
+//						objects.remove(i);
+				removeMeObjects.add(objects.get(i));
+				this.counterCoin++;
+				this.updateLabel(counterCoin, livesLeft);
+			}
+			if (objects.get(i).isOffScreen()) {
+				objects.remove(i);
+
+			}
+		}
+
+		// Remove them in this loop which is over removeMeObjects
+		for (GameObject objs : removeMeObjects) {
+			objects.remove(objs);
+		}
+	}// removeThings
+
+	/**
+	 * ensures: changes the direction of hero to up
+	 */
 	public void moveHeroUp() {
 		hero.isUp(true);
 		hero.update();
-	}
-	
-	public void setLabel(JLabel label)
-	{
+	}// moveHeroUp
+
+	/**
+	 * ensures: stores the label
+	 * 
+	 * @param label for which the coin and lives text need to go
+	 */
+	public void setLabel(JLabel label) {
 		this.label = label;
-	}
-	
-	public void hColor(Color heroColor)
-	{
+	}// setLabel
+
+	/**
+	 * ensures: makes sure the hero is the wanted color
+	 * 
+	 * @param heroColor color the hero needs to be
+	 */
+	public void hColor(Color heroColor) {
 		hero.setColor(heroColor);
-	}
-	
-	public void subtractLife()
-	{
+	}// hColor
+
+	/**
+	 * ensures: updates lives left and checks to see if all lives are gone
+	 * 
+	 */
+	public void subtractLife() {
 		livesLeft--;
-		if(livesLeft==0)
-		{
+		if (livesLeft == 0) {
 			System.out.println("GAME OVER");
-			GameOver over=new GameOver();
+			GameOver over = new GameOver();
 			over.main();
 		}
-		this.updateLabel(counterCoin,livesLeft);
-	}
-	
-	//thing
+		this.updateLabel(counterCoin, livesLeft);
+	}// subtractLife
+
+	/**
+	 * ensures: makes sure the correct amount of lives and coins are displayed
+	 * 
+	 * @param coins the amount of coins the player has gotten
+	 * @param lives the amount of lives the player has
+	 */
 	public void updateLabel(int coins, int lives) {
 		this.label.setText("<html><font color='white'>Coins: " + coins + "<br />Lives: " + lives + "</font></HTML>");
-		 this.label.setFont(new Font("Verdana", Font.BOLD, 14));
-	}//updateLabel
+		this.label.setFont(new Font("Verdana", Font.BOLD, 14));
+	}// updateLabel
 }
