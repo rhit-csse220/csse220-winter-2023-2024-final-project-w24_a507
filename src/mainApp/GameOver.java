@@ -27,6 +27,18 @@ import javax.swing.JPanel;
  */
 public class GameOver {
 
+	private Color hcolor;
+
+	/**
+	 * ensures: keeps the color of the hero so when it respawns, the color is the
+	 * same
+	 * 
+	 * @param color the color of the hero
+	 */
+	public GameOver(Color color) {
+		this.hcolor = color;
+	}// GameOver
+
 	/**
 	 * ensures: the method that needs to be called in order for the game over screen
 	 * to appear.
@@ -55,6 +67,7 @@ public class GameOver {
 
 		JButton restartGame = new JButton("Restart Game");
 		restartGame.setBackground(Color.white);
+
 		restartGame.setPreferredSize(new Dimension(150, 50));
 		forButton.add(restartGame, BorderLayout.CENTER);
 
@@ -84,7 +97,7 @@ public class GameOver {
 				// close this screen and go to game screen
 				frame.setVisible(false);
 
-				GameLevel game = new GameLevel();
+				GameLevel game = new GameLevel(hcolor);
 
 				game.main();
 				return;

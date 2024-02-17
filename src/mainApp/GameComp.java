@@ -37,6 +37,7 @@ public class GameComp extends JComponent {
 	final int MAX_LEVEL = 5;
 	private int counterCoin = 0;
 	protected int livesLeft = 3;
+	private Color hColor;
 
 	/**
 	 * ensures: starts the level at 1
@@ -236,6 +237,7 @@ public class GameComp extends JComponent {
 	 * @param heroColor color the hero needs to be
 	 */
 	public void hColor(Color heroColor) {
+		this.hColor=heroColor;
 		hero.setColor(heroColor);
 	}// hColor
 
@@ -247,7 +249,7 @@ public class GameComp extends JComponent {
 		livesLeft--;
 		if (livesLeft == 0) {
 			System.out.println("GAME OVER");
-			GameOver over = new GameOver();
+			GameOver over = new GameOver(hColor);
 			over.main();
 		}
 		this.updateLabel(counterCoin, livesLeft);
